@@ -21,9 +21,21 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "bootstrap": "^4.1.1",
+<<<<<<< HEAD
     "core-js": "^2.4.1",
     "json-server": "^0.12.2",
     "rxjs": "^5.1.0",
+=======
+    "classlist": "^2.0.0",
+    "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
+    "html5-history-api": "^4.2.10",
+    "intl": "^1.2.5",
+    "json-server": "^0.12.2",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^5.1.0",
+    "systemjs": "^0.21.3",
+>>>>>>> ef524db66fb60838cfcd9a7c99cc17e140532daf
     "typings": "^2.1.1",
     "zone.js": "^0.8.4"
   },

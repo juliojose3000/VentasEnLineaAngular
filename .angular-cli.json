@@ -19,9 +19,24 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "css/owl-carousel.css",
+        "css/owl-productviewgallery.css",
+        "css/slider.css",
+        "css/style.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "js/easing.js",
+        "js/modernizr.custom.28468.js",
+        "js/jquery.cslider.js",
+        "js/jquery-3.1.1.min.js",
+        "js/move-top.js",
+        "js/easing.js",
+        "jsresponsive.menu.js"
+
+
+        
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
