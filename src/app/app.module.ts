@@ -12,6 +12,9 @@ import { AdministrativoComponent } from './administrativo/administrativo.compone
 import { LogRegClienteComponent } from './log-reg-cliente/log-reg-cliente.component';
 import { LogAdminComponent } from './log-admin/log-admin.component';
 import { MantenimientoProductoComponent } from './mantenimiento-producto/mantenimiento-producto.component';
+import { AgregarproductoComponent } from './agregarproducto/agregarproducto.component';
+import { MantenimientocategoriaComponent } from './mantenimientocategoria/mantenimientocategoria.component';
+import { AgregarcategoriaComponent } from './agregarcategoria/agregarcategoria.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { MantenimientoProductoComponent } from './mantenimiento-producto/manteni
     AdministrativoComponent,
     LogRegClienteComponent,
     LogAdminComponent,
-    MantenimientoProductoComponent
+    MantenimientoProductoComponent,
+    AgregarproductoComponent,
+    MantenimientocategoriaComponent,
+    AgregarcategoriaComponent
   ],
   imports: [
     BrowserModule,
