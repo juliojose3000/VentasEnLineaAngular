@@ -7,6 +7,9 @@ import {AdministrativoComponent} from './administrativo/administrativo.component
 import {LogRegClienteComponent} from './log-reg-cliente/log-reg-cliente.component'
 import {LogAdminComponent} from  './log-admin/log-admin.component'
 import {MantenimientoProductoComponent} from './mantenimiento-producto/mantenimiento-producto.component'
+import {AgregarproductoComponent} from './agregarproducto/agregarproducto.component'
+import {MantenimientocategoriaComponent}  from './mantenimientocategoria/mantenimientocategoria.component'
+import {AgregarcategoriaComponent} from './agregarcategoria/agregarcategoria.component'
 const router:Routes=[
     {path:'',redirectTo:'home',pathMatch:'full'},
     {path:'home',component:HomeComponent},
@@ -14,7 +17,10 @@ const router:Routes=[
     {path:'logRegistroCliente',component:LogRegClienteComponent},
     {path:'about', component:AboutComponent},
     {path:'logAdmin', component:LogAdminComponent},
-    {path:'mantenimientoProducto',component:MantenimientoProductoComponent}
+    {path:'mantenimientoProducto',component:MantenimientoProductoComponent},
+    {path:'agregarProducto',component:AgregarproductoComponent},
+    {path:'mantenimientoCategoria',component:MantenimientocategoriaComponent},
+    {path:'agregarCategoria',component:AgregarcategoriaComponent}
     ];//arreglo Routes
     
     @NgModule({//decoracion
