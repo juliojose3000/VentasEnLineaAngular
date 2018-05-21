@@ -13,10 +13,31 @@
   <script src="node_modules/zone.js"></script>
   <script src="node_modules/reflect-metadata/Reflect.js"></script>
   <script src="node_modules/systemjs/dist/system.src.js"></script>
-
-  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-  
+  <script>
+
+      $(function () {
+    
+        $("#login-form-link").click(function (e) {
+          $("#login-form").delay(100).fadeIn(100);
+          $("#register-form").fadeOut(100);
+          $('#register-form-link').removeClass('active');
+          $(this).addClass('active');
+          e.preventDefault();
+        });
+        $("#register-form-link").click(function (e) {
+          $("#register-form").delay(100).fadeIn(100);
+          $("#login-form").fadeOut(100);
+          $('#login-form-link').removeClass('active');
+          $(this).addClass('active');
+          e.preventDefault();
+        });
+    
+      });
+    </script>
 </head>
 <body>
  
