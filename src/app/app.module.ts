@@ -15,6 +15,8 @@ import { MantenimientoProductoComponent } from './mantenimiento-producto/manteni
 import { AgregarproductoComponent } from './agregarproducto/agregarproducto.component';
 import { MantenimientocategoriaComponent } from './mantenimientocategoria/mantenimientocategoria.component';
 import { AgregarcategoriaComponent } from './agregarcategoria/agregarcategoria.component';
+import { ClienteproductoComponent } from './clienteproducto/clienteproducto.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { AgregarcategoriaComponent } from './agregarcategoria/agregarcategoria.c
     MantenimientoProductoComponent,
     AgregarproductoComponent,
     MantenimientocategoriaComponent,
-    AgregarcategoriaComponent
+    AgregarcategoriaComponent,
+    ClienteproductoComponent
   ],
   imports: [
     BrowserModule,
