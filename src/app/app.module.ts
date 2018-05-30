@@ -15,6 +15,8 @@ import { MantenimientoProductoComponent } from './mantenimiento-producto/manteni
 import { AgregarproductoComponent } from './agregarproducto/agregarproducto.component';
 import { MantenimientocategoriaComponent } from './mantenimientocategoria/mantenimientocategoria.component';
 import { AgregarcategoriaComponent } from './agregarcategoria/agregarcategoria.component';
+import { ClienteproductoComponent } from './clienteproducto/clienteproducto.component';
+
 
 import {EncargadoService} from './model/encargado.service';
 import {ProductoService} from './model/producto.service';
@@ -32,7 +34,8 @@ import { ModificarProductoComponent } from './modificar-producto/modificar-produ
     AgregarproductoComponent,
     MantenimientocategoriaComponent,
     AgregarcategoriaComponent,
-    ModificarProductoComponent
+    ModificarProductoComponent,
+    ClienteproductoComponent
   ],
   imports: [
     BrowserModule,
