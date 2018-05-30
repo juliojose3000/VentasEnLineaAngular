@@ -16,6 +16,10 @@ import { AgregarproductoComponent } from './agregarproducto/agregarproducto.comp
 import { MantenimientocategoriaComponent } from './mantenimientocategoria/mantenimientocategoria.component';
 import { AgregarcategoriaComponent } from './agregarcategoria/agregarcategoria.component';
 
+import {EncargadoService} from './model/encargado.service';
+import {ProductoService} from './model/producto.service';
+import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,8 @@ import { AgregarcategoriaComponent } from './agregarcategoria/agregarcategoria.c
     MantenimientoProductoComponent,
     AgregarproductoComponent,
     MantenimientocategoriaComponent,
-    AgregarcategoriaComponent
+    AgregarcategoriaComponent,
+    ModificarProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ import { AgregarcategoriaComponent } from './agregarcategoria/agregarcategoria.c
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EncargadoService,ProductoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

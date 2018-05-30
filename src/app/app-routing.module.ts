@@ -10,6 +10,7 @@ import {MantenimientoProductoComponent} from './mantenimiento-producto/mantenimi
 import {AgregarproductoComponent} from './agregarproducto/agregarproducto.component'
 import {MantenimientocategoriaComponent}  from './mantenimientocategoria/mantenimientocategoria.component'
 import {AgregarcategoriaComponent} from './agregarcategoria/agregarcategoria.component'
+import {ModificarProductoComponent} from './modificar-producto/modificar-producto.component'
 const router:Routes=[
     {path:'',redirectTo:'home',pathMatch:'full'},
     {path:'home',component:HomeComponent},
@@ -20,7 +21,8 @@ const router:Routes=[
     {path:'mantenimientoProducto',component:MantenimientoProductoComponent},
     {path:'agregarProducto',component:AgregarproductoComponent},
     {path:'mantenimientoCategoria',component:MantenimientocategoriaComponent},
-    {path:'agregarCategoria',component:AgregarcategoriaComponent}
+    {path:'agregarCategoria',component:AgregarcategoriaComponent},
+    {path:'modificarProducto',component:ModificarProductoComponent}
     ];//arreglo Routes
     
     @NgModule({//decoracion

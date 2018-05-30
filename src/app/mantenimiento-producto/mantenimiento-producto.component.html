@@ -1,16 +1,32 @@
 <div class="container">
     <h2>Mantenimiento productos</h2>
-          
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Email</th>
-          <th>Actualizar</th>
+          <th>IdProducto</th>
+          <th>Nombre</th>
+          <th>Categor&iacute;a</th>
+          <th>Consultar</th>
+          <th>Modificar</th>
           <th>Suprimir</th>
+          
         </tr>
+       
+        <tr *ngFor="let item of getAll()"  ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)" >
+          <td style="vertical-align:middle" (mouseover)="selectedProduct=item.idProducto" >{{item.idProducto}}</td>
+          <td style="vertical-align:middle" >{{item.nombre}}</td>
+          <td style="vertical-align:middle" >{{item.categoria.descripcion}}</td>
+          <td><a >Consultar</a>
+          <td><a (click)="modificarDatos()">Modificar</a>
+          <td><a (click)="suprimirDatos()">Suprimir</a>
+             
+         
+      </tr>
       </thead>
       
     </table>
+    <div>
+			selectedRow = {{selectedRow}}
+		</div>
+ 
   </div>
