@@ -2,20 +2,32 @@ import {Categoria} from '../model/categoria.model'
 export class Producto{
     idProducto:number;
     nombre:string;
-    categoria:Categoria;
+    categoria:string;
     precio:number;
     existencias:number;
-    descripcion:number;
-    minimoExistencias:number;
+    descripcion:string;
+    minExistencias:number;
 
-    constructor(idProducto?:number,nombre?:string,categoria?:Categoria,precio?:number,existencias?:number){
+    constructor(idProducto?:number,nombre?:string,categoria?:string,precio?:number,existencias?:number,descripcion?:string, minExistencias?: number){
      this.idProducto=idProducto;
      this.nombre=nombre;
      this.categoria=categoria;
      this.precio=precio;
      this.existencias=existencias;
-     this.descripcion=this.descripcion;
-     this.minimoExistencias=this.minimoExistencias;
+     this.descripcion=descripcion;
+     this.minExistencias=minExistencias;
     }
+
+
+    /*constructor(nombre?:string,categoria?:string,precio?:number,existencias?:number, minExistencias?: number){
+        this.nombre=nombre;
+        this.categoria=categoria;
+        this.precio=precio;
+        this.existencias=existencias;
+        //this.descripcion=descripcion;
+        this.minExistencias=minExistencias;
+       }*/
+
+
 
 }
