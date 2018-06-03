@@ -21,6 +21,7 @@ import { ClienteproductoComponent } from './clienteproducto/clienteproducto.comp
 import {EncargadoService} from './model/encargado.service';
 import {ProductoService} from './model/producto.service';
 import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
+import { CarritocomprasComponent } from './carritocompras/carritocompras.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ModificarProductoComponent } from './modificar-producto/modificar-produ
     MantenimientocategoriaComponent,
     AgregarcategoriaComponent,
     ModificarProductoComponent,
-    ClienteproductoComponent
+    ClienteproductoComponent,
+    CarritocomprasComponent
   ],
   imports: [
     BrowserModule,
