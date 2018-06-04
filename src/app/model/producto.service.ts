@@ -25,12 +25,6 @@ export class ProductoService {
     return this.http.get(this.url + '/' + idProducto).map(response => response.json());
   }
 
-  /*agregar(nombre: string, categoria: string, precio: number, existencias: number, descripcion: string, minimoExistencias: number): void {
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-    this.http.post(this.url + '/agregarProducto', { headers: headers }).map(response => response.json());
-  }*/
-
   agregar(nombre: string, categoria: string, precio: number , existencias: number, descripcion: string, minimoExistencias: number): Promise<Producto> {
     var producto: Producto;
     producto = new Producto(precio, nombre, categoria, precio, existencias, descripcion, minimoExistencias);

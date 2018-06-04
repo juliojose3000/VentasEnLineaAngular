@@ -22,6 +22,7 @@ import {EncargadoService} from './model/encargado.service';
 import {ProductoService} from './model/producto.service';
 import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
 import { CarritocomprasComponent } from './carritocompras/carritocompras.component';
+import { CarritoService } from './model/carrito.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { CarritocomprasComponent } from './carritocompras/carritocompras.compone
     HttpModule,
     AppRoutingModule
   ],
-  providers: [EncargadoService,ProductoService],
+  providers: [EncargadoService,ProductoService, CarritoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

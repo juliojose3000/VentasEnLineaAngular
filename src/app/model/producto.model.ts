@@ -19,15 +19,5 @@ export class Producto{
     }
 
 
-    /*constructor(nombre?:string,categoria?:string,precio?:number,existencias?:number, minExistencias?: number){
-        this.nombre=nombre;
-        this.categoria=categoria;
-        this.precio=precio;
-        this.existencias=existencias;
-        //this.descripcion=descripcion;
-        this.minExistencias=minExistencias;
-       }*/
-
-
 
 }
