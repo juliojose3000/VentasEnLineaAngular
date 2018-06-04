@@ -12,6 +12,7 @@ import {MantenimientocategoriaComponent}  from './mantenimientocategoria/manteni
 import {AgregarcategoriaComponent} from './agregarcategoria/agregarcategoria.component'
 import {ModificarProductoComponent} from './modificar-producto/modificar-producto.component'
 import { ClienteproductoComponent } from './clienteproducto/clienteproducto.component'
+import {ConsultarProductoComponent} from './consultar-producto/consultar-producto.component'
 
 const router:Routes=[
     {path:'',redirectTo:'home',pathMatch:'full'},
@@ -25,6 +26,7 @@ const router:Routes=[
     {path:'mantenimientoCategoria',component:MantenimientocategoriaComponent},
     {path:'agregarCategoria',component:AgregarcategoriaComponent},
     {path:'modificarProducto',component:ModificarProductoComponent},
+    {path:'consultarProducto',component:ConsultarProductoComponent},
     {path: 'clienteproducto',component:ClienteproductoComponent}
     ];//arreglo Routes
     

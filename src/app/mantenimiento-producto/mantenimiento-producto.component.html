@@ -16,7 +16,7 @@
           <td style="vertical-align:middle" (mouseover)="selectedProduct=item.idProducto" >{{item.idProducto}}</td>
           <td style="vertical-align:middle" >{{item.nombre}}</td>
           <td style="vertical-align:middle" >{{item.categoria.descripcion}}</td>
-          <td><a >Consultar</a>
+          <td><a (click)="consultarDatos()" >Consultar</a>
           <td><a (click)="modificarDatos()">Modificar</a>
           <td><a (click)="suprimirDatos()">Suprimir</a>
              
@@ -25,8 +25,5 @@
       </thead>
       
     </table>
-    <div>
-			selectedRow = {{selectedRow}}
-		</div>
  
   </div>

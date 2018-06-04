@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Consultar productos</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>IdProducto</th>
+        <th>Nombre</th>
+        <th>Categor&iacute;a</th>
+        <th>Existencias</th>
+        <th>M&iacute;nimo de Existencias</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        
+      </tr>
+     
+      <tr *ngFor="let item of getProducto()"   >
+        <td style="vertical-align:middle"  >{{item.idProducto}}</td>
+        <td style="vertical-align:middle" >{{item.nombre}}</td>
+        <td style="vertical-align:middle" >{{item.categoria.descripcion}}</td>
+        <td style="vertical-align:middle" >{{item.existencias}}</td>
+        <td style="vertical-align:middle" >{{item.minimoExistencias}}</td>
+        <td style="vertical-align:middle" >{{item.descripcion}}</td>
+        <td style="vertical-align:middle" >{{item.precio}}</td>
+    
+    </tr>
+    </thead>
+    
+  </table>
+  <p><a href="/mantenimientoProducto">Regresar </a> </p>
+</div>
