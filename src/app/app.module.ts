@@ -25,6 +25,7 @@ import { ConsultarProductoComponent } from './consultar-producto/consultar-produ
 import { CarritocomprasComponent } from './carritocompras/carritocompras.component';
 import { MostrarProductoComponent } from './mostrar-producto/mostrar-producto.component';
 import {ClienteService} from './model/cliente.service';
+import { CarritoService } from './model/carrito.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import {ClienteService} from './model/cliente.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [EncargadoService,ProductoService,ClienteService],
+  providers: [EncargadoService,ProductoService,ClienteService,CarritoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
