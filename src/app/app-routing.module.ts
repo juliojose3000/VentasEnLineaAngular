@@ -12,8 +12,9 @@ import {MantenimientocategoriaComponent}  from './mantenimientocategoria/manteni
 import {AgregarcategoriaComponent} from './agregarcategoria/agregarcategoria.component'
 import {ModificarProductoComponent} from './modificar-producto/modificar-producto.component'
 import { ClienteproductoComponent } from './clienteproducto/clienteproducto.component'
+import { CarritocomprasComponent } from './carritocompras/carritocompras.component'
 import {ConsultarProductoComponent} from './consultar-producto/consultar-producto.component'
-
+import {MostrarProductoComponent}  from './mostrar-producto/mostrar-producto.component'
 const router:Routes=[
     {path:'',redirectTo:'home',pathMatch:'full'},
     {path:'home',component:HomeComponent},
@@ -27,7 +28,10 @@ const router:Routes=[
     {path:'agregarCategoria',component:AgregarcategoriaComponent},
     {path:'modificarProducto',component:ModificarProductoComponent},
     {path:'consultarProducto',component:ConsultarProductoComponent},
-    {path: 'clienteproducto',component:ClienteproductoComponent}
+    {path: 'clienteproducto',component:ClienteproductoComponent},
+    {path: 'clienteproducto',component:ClienteproductoComponent},
+    {path: 'carritocompras',component:CarritocomprasComponent},
+    {path: 'mostrarProductos',component:MostrarProductoComponent}
     ];//arreglo Routes
     
     @NgModule({//decoracion

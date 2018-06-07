@@ -1,0 +1,41 @@
+
+
+<div>
+  <ul class="product-list-vertical">
+
+      <li class="row" *ngFor="let item of getAll()">
+
+          <a href="#" class="product-photo">
+              <img src="/src/assets/iphone6.jpg" height="160" alt="iPhone 6" />
+          </a>
+
+          <div class="product-details">
+             
+
+              <h2><a href="#">{{item.nombre}}</a></h2>
+
+              <div class="product-rating">
+                  <div>
+                      <span class="product-stars" style="width: 60px" >
+                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      </span>
+                  </div>
+
+                  <span><a href="#">82 reviews</a></span>
+              </div>
+
+
+              <p class="product-description">{{item.descripcion}}</p>
+
+              <button>Buy Now!</button>
+              <p class="product-price">${{item.precio}}</p>
+          </div>
+
+      </li>
+
+      
+  </ul>
+
+</div>
+
+

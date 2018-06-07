@@ -8,7 +8,7 @@ body{
 	/* Setting the default text color, size, page background and a font stack: */
 	font-size:0.825em;
 	color:#fcfcfc;
-	background-color:#37b0e4;
+	background-color:#c2aeae;
 	font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -76,7 +76,7 @@ div.article .line{
 	/* The dividing line inside of the article is darker: */
 	background-color:#15242a;
 	border-bottom-color:#204656;
-	margin:1.3em 0;
+	margin:3.3em 0;
 }
 
 div.footer .line{

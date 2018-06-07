@@ -8,6 +8,7 @@
             $("#login-form").delay(100).fadeIn(100);
             $("#register-form").fadeOut(100);
             $('#register-form-link').removeClass('active');
+           // $('#confirmacion').alert('close');
             $(this).addClass('active');
             e.preventDefault();
           });
@@ -38,43 +39,71 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-lg-12">
-              <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+              <form  id="login-form"  (ngSubmit)= "onSubmitLogeo(contactForm);" #contactForm="ngForm" style="display: block;">
                 <div class="form-group">
-                  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Correo" value="">
+                  <input type="email" [(ngModel)]="correo" name="correo" id="correo"  tabindex="1"  class="form-control" placeholder="Correo" value="">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contrase&ntilde;a">
+                  <input type="password" [(ngModel)]="password" name="password"  id="password" tabindex="2" class="form-control" placeholder="Contrase&ntilde;a" value="">
                 </div>
                       <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
-                      <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                      <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Ingresar">
+                      <label>{{mensaje}} </label>
                     </div>
                   </div>
                 </div>
             
               </form>
-              <form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+              <form id="register-form" (ngSubmit)= "onSubmitRegistro(contactForm);" #contactForm="ngForm"  style="display: none;">
                 <div class="form-group">
-                  <input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre" value="">
+                  <input type="number" [(ngModel)]="cedula" name="cedula" id="cedula" tabindex="1" class="form-control" placeholder="Identificaci&oacute;n" value="">
                 </div>
                 <div class="form-group">
-                  <input type="text" name="apellidos" id="apellidos" tabindex="1" class="form-control" placeholder="Apellidos" value="">
+                  <input type="text" [(ngModel)]="nombre" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre" value="">
                 </div>
                 <div class="form-group">
-                  <input type="email" name="correo" id="correo" tabindex="1" class="form-control" placeholder="Correo" value="">
+                  <input type="text" [(ngModel)]="apellidos" name="apellidos" id="apellidos" tabindex="1" class="form-control" placeholder="Apellidos" value="">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contrase&ntilde;a">
+                  <input type="text" [(ngModel)]="telefono1" name="telefono1" id="telefono1" tabindex="1" class="form-control" placeholder="Tel&eacute;fono 1" value="">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                  <input type="text" [(ngModel)]="telefono2" name="telefono2" id="telefono2" tabindex="1" class="form-control" placeholder="Tel&eacute;fono 2" value="">
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="direccion1" name="direccion1" id="direccion1" tabindex="1" class="form-control" placeholder="Direcci&oacute;n 1" value="">
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="direccion2" name="direccion2" id="direccion2" tabindex="1" class="form-control" placeholder="Direcci&oacute;n 2" value="">
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="pais" name="pais" id="pais" tabindex="1" class="form-control" placeholder="Pa&iacute;s" value="">
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="provincia" name="provincia" id="provincia" tabindex="1" class="form-control" placeholder="Provincia" value="">
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="canton" name="canton" id="canton" tabindex="1" class="form-control" placeholder="Cant&oacute;n" value="">
+                </div>
+                <div class="form-group">
+                  <input type="number" [(ngModel)]="codigoPostal" name="codigoPostal" id="codigoPostal" tabindex="1" class="form-control" placeholder="C&oacute;digo Postal" value="">
+                </div>
+                <div class="form-group">
+                  <input type="email" [(ngModel)]="correoR" name="correo" id="correo" tabindex="1" class="form-control" placeholder="Correo" value="">
+                </div>
+                <div class="form-group">
+                  <input type="password" [(ngModel)]="passwordR"  name="password" id="password" tabindex="2" class="form-control" placeholder="Contrase&ntilde;a">
                 </div>
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
                       <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registratse Ahora">
                     </div>
+                  </div>
+                  <div *ngIf="getEstado()==true" id="confirmacion" class="alert alert-success" >
+                    <strong>Exito!</strong> Por favor inicie sesi&oacute;n
                   </div>
                 </div>
               </form>

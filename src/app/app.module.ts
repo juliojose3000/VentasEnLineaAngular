@@ -22,6 +22,9 @@ import {EncargadoService} from './model/encargado.service';
 import {ProductoService} from './model/producto.service';
 import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
 import { ConsultarProductoComponent } from './consultar-producto/consultar-producto.component';
+import { CarritocomprasComponent } from './carritocompras/carritocompras.component';
+import { MostrarProductoComponent } from './mostrar-producto/mostrar-producto.component';
+import {ClienteService} from './model/cliente.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import { ConsultarProductoComponent } from './consultar-producto/consultar-produ
     AgregarcategoriaComponent,
     ModificarProductoComponent,
     ClienteproductoComponent,
-    ConsultarProductoComponent
+    ConsultarProductoComponent,
+    CarritocomprasComponent,
+    MostrarProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,7 @@ import { ConsultarProductoComponent } from './consultar-producto/consultar-produ
     HttpModule,
     AppRoutingModule
   ],
-  providers: [EncargadoService,ProductoService],
+  providers: [EncargadoService,ProductoService,ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
