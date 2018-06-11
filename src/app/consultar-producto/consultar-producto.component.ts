@@ -12,7 +12,7 @@ export class ConsultarProductoComponent implements OnInit {
   private productos:Producto[]=new Array<Producto>();
 
   constructor(private productoService:ProductoService,private router:Router) { 
-    this.productoService.getProductoPorIDActual().subscribe(data => this.productos=data );
+    //this.productoService.getProductoPorIDActual().subscribe(data => this.productos=data );
   }
 
   ngOnInit() {

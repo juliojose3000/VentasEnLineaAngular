@@ -12,16 +12,34 @@ export class CarritoService {
 
 
   getAll(): Observable<Carrito[]> {
-      console.log( (this.url + '/'))
     return this.http.get(this.url + '/').map(response => response.json());
   }
 
-  /*suprimir(idProducto: number): Observable<Carrito[]> {
+  total(): Observable<number>{
+    return this.http.get(this.url + '/total').map(response => response.json());
+  }
+
+  realizarCompra(): Observable<Response>{
+    alert("a borrar");
+    return this.http.delete(this.url + '/1');
+  }
+
+  /*realizarCompra2(idCliente: number): Observable<Carrito[]> {
+    alert(this.url + '/' + idCliente);
     var headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.delete(this.url + '/' + idProducto, { headers: headers }).map(response => response.json())
+    return this.http.delete(this.url + '/' + idCliente, { headers: headers }).map(response => response.json())
 
   }*/
+
+  realizarCompra2(idCliente: number): Promise<Carrito> {
+    alert(this.url + '/' + idCliente);
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.delete(this.url + '/' + idCliente, { headers: headers }).toPromise().then(this.extractData);
+
+
+  }
 
 
   private extractData(res: Response) {

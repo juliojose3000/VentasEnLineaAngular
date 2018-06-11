@@ -41,7 +41,7 @@ export class MostrarProductoComponent implements OnInit {
   }
   getProductosEncontrados():void{
     console.log(this.nombreBusqueda);
-    this.productoService.getProductoNombre(this.nombreBusqueda).subscribe(data => this.productos=data);
+    //this.productoService.getProductoNombre(this.nombreBusqueda).subscribe(data => this.productos=data);
   }
 
 

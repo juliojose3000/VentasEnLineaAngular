@@ -231,32 +231,40 @@
           <span>Price</span>
           <span>Total</span>
         </li>
-        <li class="row" *ngFor="let item of getProductos()" >
+        <li class="row" *ngFor="let item of getProductos()">
           <span class="quantity">{{item.cantidad}}</span>
-          <span class="itemName">{{item.nombre}}</span>
-          <span class="price">{{item.precio}}</span>
+          <span class="productName">{{item.nombre}}</span>
+          <span class="price">{{item.precio+" CRC"}}</span>
+          <span class="total">{{item.precio * item.cantidad}}</span>
+        </li>
 
-          <span class="price">{{item.precio *  item.cantidad}}</span>
-          <!--<span class="price">{{item.cantidad * item.precio}}</span>-->
+        <li class="row totals" *ngFor="let item of getTotal()">
+          <span class="itemName">Total:</span>
+          <span class="price">{{item}}</span>
+          <span class="order" (click)="realizarCompra()">
+            <a class="text-center">ORDER</a>
+          </span>
         </li>
 
       </ul>
     </div>
-
   </div>
 
-    <!-- The popover content -->
 
-    <div id="popover" style="display: none">
-      <a href="#">
-        <span class="glyphicon glyphicon-pencil"></span>
-      </a>
-      <a href="#">
-        <span class="glyphicon glyphicon-remove"></span>
-      </a>
-    </div>
 
-    <!-- JavaScript includes -->
+  <!-- The popover content -->
+
+  <div id="popover" style="display: none">
+    <a href="#">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+    <a href="#">
+      <span class="glyphicon glyphicon-remove"></span>
+    </a>
+  </div>
+
+  <!-- JavaScript includes -->
 
 
 </body>
+
