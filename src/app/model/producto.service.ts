@@ -10,11 +10,11 @@ export class ProductoService{
     private idActual:number=0;
     private nombreProductoBusqueda:string="";
     private productoBusqueda:Producto[]=new Array<Producto>();
+   
     constructor(private http: Http){
      // this.getAll().subscribe(data => this.productoBusqueda=data );
      }//variable de la clase
 
-<<<<<<< HEAD
     
     getAll(): Observable<Producto[]>{
         return this.http.get(this.url+'/').map(response => response.json());
@@ -30,6 +30,8 @@ export class ProductoService{
        
       return this.http.get(this.url+'/'+this.idActual).map(response =>response.json());
       }
+
+    
       
       getProductoNombre(name:string):Observable<Producto[]>{
          //console.log(this.url+'/'+name+'/'+'t');
@@ -57,39 +59,6 @@ export class ProductoService{
           headers.append('Content-Type', 'application/json; charset=utf-8');
           return this.http.delete(this.url+'/'+idProducto, { headers: headers }) .map(response => response.json())
       }
-=======
-  constructor(private http: Http) { }//variable de la clase
-
-
-  getAll(): Observable<Producto[]> {
-    return this.http.get(this.url + '/').map(response => response.json());
-  }
-
-  suprimir(idProducto: number): Observable<Producto[]> {
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.delete(this.url + '/' + idProducto, { headers: headers }).map(response => response.json())
-
-  }
-  getById(idProducto: number): Observable<Producto[]> {
-    return this.http.get(this.url + '/' + idProducto).map(response => response.json());
-  }
-
-  agregar(nombre: string, categoria: string, precio: number , existencias: number, descripcion: string, minimoExistencias: number): Promise<Producto> {
-    var producto: Producto;
-    producto = new Producto(precio, nombre, categoria, precio, existencias, descripcion, minimoExistencias);
-    //producto = new Producto(nombre, categoria, precio, existencias, minimoExistencias);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.url + '/agregarProducto', producto, options).toPromise().then(this.extractData);
-
-  }
-
-  private extractData(res: Response) {
-    let body = res.json();
-    return body || {};
-  }
->>>>>>> a95d52ed972614113bee2e6cbbfde84c60b56632
 
       actualizar(idProducto:number,producto:Producto):Promise<Producto>{
         console.log('ENTRA A ACTUALIZAR'+idProducto + producto.nombre+producto.descripcion+producto.minimoExistencias
@@ -102,16 +71,19 @@ export class ProductoService{
       getById(idProducto:number):Observable<Producto[]>{
         return this.http.get(this.url+'/'+idProducto).map(response => response.json());
       }
-     /* agregar(nombre: string, categoria: string, precio: number , existencias: number, descripcion: string, minimoExistencias: number): Promise<Producto> {
-        var producto: Producto;
-        producto = new Producto(precio, nombre, categoria, precio, existencias, descripcion, minimoExistencias);
-        //producto = new Producto(nombre, categoria, precio, existencias, minimoExistencias);
+      getTopProductos():Observable<Producto[]>{
+        return this.http.get(this.url+'/c'+'/ce'+'/ct').map(response =>response.json());
+      }
+
+     
+      agregar(producto:Producto): Promise<Producto> {
+      
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.url + '/agregarProducto', producto, options).toPromise().then(this.extractData);
+        return this.http.post(this.url + '/', producto, options).toPromise().then(this.extractData);
     
       }
-*/
+
       private extractData(res: Response) {
         let body = res.json();
             return body || {};

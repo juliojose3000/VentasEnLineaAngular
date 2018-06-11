@@ -21,7 +21,9 @@
       "styles": [
   
       ],
-      "scripts": [        
+      "scripts": [      
+        "../src/app/clienteproducto/script.js"  
+
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

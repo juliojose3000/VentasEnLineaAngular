@@ -1,3 +1,55 @@
-<p>
-  agregarcategoria works!
-</p>
+<div>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Amazing</a>
+          </div>
+          <ul class="nav navbar-nav" id="navPrincipal">
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Producto <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="mantenimientoProducto">Mantenmiento Producto</a></li>
+                <li><a href="agregarProducto">Agregar Producto</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categor&iacute;a <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="mantenimientoCategoria">Mantenmiento Categor&iacute;a</a></li>
+                <li><a href="agregarCategoria">Agregar Categor&iacute;a</a></li>
+              </ul>
+           
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <strong>Cerrar sesion</strong>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </a>
+               
+            </li>
+        </ul>
+        </div>
+      </nav>
+</div>
+
+
+<div class="container">
+    <h2>Agregar Categoria </h2>
+    <form class="form-horizontal"(ngSubmit)= "onSubmit(contactForm);" #contactForm="ngForm">
+      <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Descripci&oacute;n</label>
+          <div class="col-sm-5">        
+          <textarea style="resize: none;" class="form-control" rows="5" [(ngModel)]="descripcion" name="descripcion"></textarea>
+          </div>
+        </div>
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button class="form-horizontal" type="submit" class="btn btn-default">Agregar</button>
+        </div>
+      </div>
+    </form>
+    <div *ngIf="getEstado()==true" id="confirmacion" class="alert alert-success" >
+        <strong>Exito!</strong><a href="/administrativo">Regresar</a>
+      </div>
+  </div>

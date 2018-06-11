@@ -1,16 +1,26 @@
 <div class="container">
   <h2>Mantenimiento de categor&iacute;a</h2>
-        
+
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>IdCategoria</th>
+        <th>IDCategor&iacute;a</th>
         <th>Nombre</th>
-        <th>Email</th>
         <th>Modificar</th>
         <th>Suprimir</th>
+
+
+      </tr>
+      <tr *ngFor="let item of getAll()">
+        <td style="vertical-align:middle" (mouseover)="selectedProduct=item.idCategoria">{{item.idCategoria}}</td>
+        <td style="vertical-align:middle">{{item.descripcion}}</td>
+        <td><a (click)="modificarDatos()">Modificar</a>
+          <td><a (click)="suprimirDatos()">Suprimir</a>
+          
+            
       </tr>
     </thead>
-    
+
   </table>
+  <a href="/administrativo"class="btn btn-primary btn-sm"><< Regresar</a>
 </div>

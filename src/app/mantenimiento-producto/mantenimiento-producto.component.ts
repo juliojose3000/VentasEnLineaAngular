@@ -15,6 +15,7 @@ idProducto:number;
 nombre:string;
 categoria:string;
 selectedProduct:number;
+private estado:boolean=false;
 ngOnInit() {
 }
 
@@ -36,10 +37,16 @@ ngOnInit() {
     console.log('entra a borrar '+this.selectedProduct);
     this.productoService.suprimir(this.selectedProduct).subscribe(data => this.productos=data );
     this.router.navigate(['/mantenimientoProducto']);
+    this.estado=true;
  }
  consultarDatos():void{
+   console.log(this.selectedProduct);
    this.productoService.setIDProductoActual(this.selectedProduct);
    this.router.navigate(['/consultarProducto']);
  }
+ getEstado():boolean{
+  console.log('Entra '+ this.estado);
+  return this.estado;
+}
 
 }
