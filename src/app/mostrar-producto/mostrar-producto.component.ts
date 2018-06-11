@@ -13,9 +13,9 @@ export class MostrarProductoComponent implements OnInit {
   ngOnInit() {
   }
   constructor(private productoService:ProductoService) {
-    this.nombreBusqueda= productoService.getNombreCriterioBusqueda();
+    //this.nombreBusqueda= productoService.getNombreCriterioBusqueda();
     console.log(this.nombreBusqueda);
-    this.productoService.getProductoNombre(this.nombreBusqueda).subscribe(data => this.productos=data);
+    //this.productoService.getProductoNombre(this.nombreBusqueda).subscribe(data => this.productos=data);
     console.log(this.productos.length);
    }
 
@@ -26,7 +26,7 @@ export class MostrarProductoComponent implements OnInit {
   }
   getProductosEncontrados():void{
     console.log(this.nombreBusqueda);
-    this.productoService.getProductoNombre(this.nombreBusqueda).subscribe(data => this.productos=data);
+    //this.productoService.getProductoNombre(this.nombreBusqueda).subscribe(data => this.productos=data);
   }
 
 

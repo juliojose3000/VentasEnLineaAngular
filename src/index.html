@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Ventaenlinea</title>
@@ -20,38 +21,52 @@
   <script src="../src/app/clienteproducto/jquery.scrollTo-1.4.2/jquery.scrollTo.js"></script>
   <script src="../src/app/clienteproducto/script.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../src/app/carritocompras/css/bootstrap.min.css"/>
-  <link rel="stylesheet" type="text/css" href="../src/app/carritocompras/css/custom.css"/>	
-  
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+  <link rel="stylesheet" type="text/css" href="../src/app/carritocompras/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../src/app/carritocompras/css/custom.css" />
+
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="../src/app/carritocompras/js/bootstrap.min.js"></script>
   <script src="../src/app/carritocompras/js/customjs.js"></script>
 
   <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
   <script>
 
-      $(function () {
-    
-        $("#login-form-link").click(function (e) {
-          $("#login-form").delay(100).fadeIn(100);
-          $("#register-form").fadeOut(100);
-          $('#register-form-link').removeClass('active');
-          $(this).addClass('active');
-          e.preventDefault();
-        });
-        $("#register-form-link").click(function (e) {
-          $("#register-form").delay(100).fadeIn(100);
-          $("#login-form").fadeOut(100);
-          $('#login-form-link').removeClass('active');
-          $(this).addClass('active');
-          e.preventDefault();
-        });
-    
+    $(function () {
+
+      $("#login-form-link").click(function (e) {
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
       });
-    </script>
+      $("#register-form-link").click(function (e) {
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+      });
+
+    });
+  </script>
+
+  <script>
+    function myFunction() {
+      var txt;
+      if (confirm("Seguro que deseas realizar la compra?")) {
+        alert("Su compra ha sido realizada con exito");
+      } 
+    }
+  </script>
+
+
+
 </head>
+
 <body>
- 
+
   <app-root>Loading...</app-root>
 </body>
+
 </html>

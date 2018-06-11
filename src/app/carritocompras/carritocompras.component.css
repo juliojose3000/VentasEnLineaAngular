@@ -132,13 +132,13 @@ a:hover {
 .row{
 	box-shadow: 0 1px 0 #e1e5e8;
 	padding-bottom :0;
-	padding-left: 15px;
+	padding-left: 15px;/* margen iz*/
 	background-color: #ffffff;
-	margin-bottom: 11px;
+	margin-bottom: 15px; /*Espacio entre elementos de la lista */
 }
 
 .row span{
-	padding: 20px 0 6px 0;
+	padding: 0 50px 6px 0; /* Separacion entre los elementos de las columnas*/ 
 }
 
 /* Column Captions */
@@ -152,15 +152,15 @@ a:hover {
 	background-color: #f2f6f9;
 }
 
-.columnCaptions span:first-child{
+.columnCaptions span:first-child{/*Margen izquierdo del primer elemento del encabezados de las columnas */
 	padding-left:8px;
 }
 
 .columnCaptions span{
-	padding: 0 21px 0 0;
+	padding: 0 50px 0 0; /*Margen entre elementos de los encabezados de las columnas*/
 }
 
-.columnCaptions span:last-child{
+.columnCaptions span:last-child{ /*Caracteristicas del ultimo elemento del encabezado de las columnas*/
 	float: right;
 	padding-right: 72px;
 }
@@ -188,13 +188,22 @@ a:hover {
 
 
 .price{	
-	color: #727578;
+	color: #2470bb;
 	font-size :18px;
 	font-weight: bold;
-	float : left;
-	width: 84px;
-	padding-left: -52px;
+	float : unset;
+	width: 42px;
+	padding-left: 7px;
 }
+
+.productName{	
+	color: #727578;
+	font-size :16px;
+	font-weight: bold;
+	float: left;
+	padding-left:25px;
+}
+
 
 
 .popbtn{

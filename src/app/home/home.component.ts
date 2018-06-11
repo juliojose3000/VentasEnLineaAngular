@@ -21,7 +21,7 @@ ngOnInit() {
   
   onSubmit(){
     //this.productoService.getProductoNombre(this.busqueda).subscribe(data => this.productos=data );
-    this.productoService.setNombreCriterioBusqueda(this.busqueda);
+    //this.productoService.setNombreCriterioBusqueda(this.busqueda);
     this.router.navigate(['/mostrarProductos']);
   }
 

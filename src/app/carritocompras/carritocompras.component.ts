@@ -10,7 +10,7 @@ import { CarritoService } from '../model/carrito.service';
 export class CarritocomprasComponent implements OnInit {
 
   private productosCarrito:Carrito[]=new Array<Carrito>();
-
+  private total: number = 0;
   
 
   ngOnInit() {
@@ -18,11 +18,24 @@ export class CarritocomprasComponent implements OnInit {
 
   constructor(private CarritoService: CarritoService) {
     this.CarritoService.getAll().subscribe(data => this.productosCarrito=data);
+    this.CarritoService.total().subscribe(data => this.total=data);
 
   }
 
   getProductos():Carrito[]{
     return this.productosCarrito;
+  }
+
+  getTotal(): number{
+    return this.total
+  }
+
+  realizarCompra():void{
+    var txt;
+    if (confirm("Seguro que deseas realizar la compra?")) {
+      this.CarritoService.realizarCompra2(1);
+      alert("Su compra ha sido realizada con exito");
+    } 
   }
 
 }

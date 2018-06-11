@@ -23,8 +23,8 @@ private productoAux:Producto;
 
 private productoActual:Producto[]=new Array<Producto>();
   constructor(private productoService:ProductoService,private router:Router) {
-    this.selectedProduct=this.productoService.getIDProductoActual();
-   this.productoService.getProductoPorIDActual().subscribe(data =>this.productoActual=data);
+    //this.selectedProduct=this.productoService.getIDProductoActual();
+   //this.productoService.getProductoPorIDActual().subscribe(data =>this.productoActual=data);
   }
 
   ngOnInit() {
