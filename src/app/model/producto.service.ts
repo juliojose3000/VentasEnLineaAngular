@@ -84,6 +84,13 @@ export class ProductoService{
     
       }
 
+      agregarAlCarrito(idProducto: number): Promise<number>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.url + '/agregarEnCarrito', idProducto, options).toPromise().then(this.extractData);
+
+      }
+
       private extractData(res: Response) {
         let body = res.json();
             return body || {};

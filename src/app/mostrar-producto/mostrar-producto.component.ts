@@ -13,6 +13,9 @@ import { CategoriaService } from '../model/categoria.service';
 export class MostrarProductoComponent implements OnInit {
   private productos:Producto[]=new Array<Producto>();
   private categorias:Categoria[]=new Array<Categoria>();
+  private idProducto: number;
+  private descripcion: string;
+  private selectedProduct: number;
   nombreBusqueda:string;
   busqueda:string;
   ngOnInit() {
@@ -42,6 +45,10 @@ export class MostrarProductoComponent implements OnInit {
   getProductosEncontrados():void{
     console.log(this.nombreBusqueda);
     //this.productoService.getProductoNombre(this.nombreBusqueda).subscribe(data => this.productos=data);
+  }
+
+  addToCar(): void{
+    this.productoService.agregarAlCarrito(this.selectedProduct);
   }
 
 

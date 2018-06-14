@@ -5,8 +5,6 @@ import { Cliente } from '../model/cliente';
 import { DireccionCliente } from '../model/direccioncliente';
 import { ContactoCliente } from '../model/contactocliente';
 import { subscribeOn } from 'rxjs/operator/subscribeOn';
-import { CarritoService } from '../model/carrito.service';
-import { ClienteLogueadoService } from '../model/clienteLogueado.service';
 
 
 @Component({
@@ -36,8 +34,7 @@ export class LogRegClienteComponent implements OnInit {
   estado: boolean = false;
   ngOnInit() {
   }
-  constructor(private clienteService: ClienteService, private router: Router,
- private  carritoService:CarritoService,private clienteLogueadoService:ClienteLogueadoService) {
+  constructor(private clienteService: ClienteService, private router: Router) {
     this.clienteService.getAll().subscribe(data => this.clientes = data);
   }
   /*
@@ -60,7 +57,7 @@ export class LogRegClienteComponent implements OnInit {
     console.log(this.getCliente(this.correo,this.password).idCliente);
     cliente=this.getCliente(this.correo,this.password);
     if(cliente!=undefined){
-      this.clienteLogueadoService.registrarClienteLogueado(cliente);
+      this.clienteService.inicializarClienteActual(cliente);
       this.router.navigate(['/home']);
     }
     else{
@@ -87,10 +84,10 @@ export class LogRegClienteComponent implements OnInit {
 
     var contactoCliente = new ContactoCliente(0,this.telefono1, this.telefono2);
 
-  //  var cliente = new Cliente(this.cedula, this.nombre, this.apellidos, this.correoR, this.passwordR
-   ///   , direccionCliente, contactoCliente);
- //     console.log(cliente.contactoCliente.telefono1+' '+cliente.contactoCliente.telefono2);
-   // this.clienteService.registrarCliente(cliente);
+    var cliente = new Cliente(this.cedula, this.nombre, this.apellidos, this.correoR, this.passwordR
+      , direccionCliente, contactoCliente);
+      console.log(cliente.contactoCliente.telefono1+' '+cliente.contactoCliente.telefono2);
+    this.clienteService.registrarCliente(cliente);
 
     this.estado = true;
 

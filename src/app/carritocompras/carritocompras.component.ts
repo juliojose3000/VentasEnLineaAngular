@@ -15,21 +15,22 @@ import { ClienteLogueadoService } from '../model/clienteLogueado.service';
 export class CarritocomprasComponent implements OnInit {
 
   private productosCarrito:Carrito[]=new Array<Carrito>();
-  private clienteActual:Cliente[]=new Array <Cliente>();
-  private total:number=0;
-  private id:number=0;
+  private total: number = 0;
+  private idCliente:number=0;
   cliente:Cliente=new Cliente();
 
   ngOnInit() {
   }
 
   constructor(private CarritoService: CarritoService,private clienteService:ClienteService, 
-   private clienteLogueado:ClienteLogueadoService ) {
+    ) {
    // this.cliente=this.clienteService.getClienteActual();
-   this.clienteLogueado.getClienteLogueado().subscribe(data => this.clienteActual=data);
-    console.log('Id Cliente'+this.clienteActual[0].idCliente);
-    this.CarritoService.getCarritoCliente(( this.clienteActual[0].idCliente)).subscribe(data => this.productosCarrito=data);
-    this.CarritoService.totalCliente( this.total).subscribe(data => this.total=data);
+    this.idCliente= this.CarritoService.getIdCliente();
+    console.log('Id Cliente'+this.idCliente);
+    //this.CarritoService.getCarritoCliente(( this.idCliente)).subscribe(data => this.productosCarrito=data);
+    this.CarritoService.getCarritoCliente(( 1)).subscribe(data => this.productosCarrito=data);
+    //this.CarritoService.totalCliente( this.idCliente).subscribe(data => this.total=data);
+    this.CarritoService.totalCliente(1).subscribe(data => this.total=data);
 
   }
 

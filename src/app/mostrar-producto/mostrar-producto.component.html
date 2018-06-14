@@ -119,7 +119,7 @@
              
 
               <h2><a href="#">{{item.nombre}}</a></h2>
-
+              <h2><a href="#"(mouseover)="selectedProduct=item.idProducto">{{item.idProducto}}</a></h2>
               <div class="product-rating">
                   <div>
                       <span class="product-stars" style="width: 60px" >
@@ -132,8 +132,7 @@
 
 
               <p class="product-description">{{item.descripcion}}</p>
-
-              <button>Buy Now!</button>
+              <button (click)="addToCar()"></button>
               <p class="product-price">${{item.precio}}</p>
           </div>
 
