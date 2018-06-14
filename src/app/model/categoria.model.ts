@@ -1,10 +1,10 @@
 export class Categoria{
 idCategoria:number;
-nombre:string;
+descripcion:string;
 
-constructor(idCategoria?:number,nombre?:string){
+constructor(idCategoria?:number,descripcion?:string){
     this.idCategoria=idCategoria;
-    this.nombre=nombre;
+    this.descripcion=descripcion;
     
 
 

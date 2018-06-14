@@ -7,21 +7,30 @@ import { Carrito } from './carrito.model';
 @Injectable()
 export class CarritoService {
   private url = 'http://localhost:8082/api/ventas/carrito';
-
+  idCliente:number;
   constructor(private http: Http) { }//variable de la clase
 
 
-  getAll(): Observable<Carrito[]> {
-    return this.http.get(this.url + '/').map(response => response.json());
+  getCarritoCliente(idCliente:number): Observable<Carrito[]> {
+    return this.http.get(this.url + '/'+idCliente).map(response => response.json());
   }
 
-  total(): Observable<number>{
-    return this.http.get(this.url + '/total').map(response => response.json());
+  totalCliente(idCliente:number): Observable<number>{
+    return this.http.get(this.url + '/total/'+idCliente).map(response => response.json());
   }
 
   realizarCompra(): Observable<Response>{
     alert("a borrar");
     return this.http.delete(this.url + '/1');
+  }
+
+  setIdCliente(idCliente:number):void{
+    this.idCliente=idCliente;
+ //   console.log(this.idCliente);
+  }
+  getIdCliente():number{
+    console.log('Get'+ this.idCliente);
+    return this.idCliente;
   }
 
   /*realizarCompra2(idCliente: number): Observable<Carrito[]> {

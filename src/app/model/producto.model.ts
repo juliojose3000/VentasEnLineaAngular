@@ -8,14 +8,9 @@ export class Producto{
     descripcion:string;
     minimoExistencias:number;
 
-    constructor(idProducto?:number,
-                nombre?:string,
-                minimoExistencias?:number,
-                precio?:number,
-                descripcion?:string, 
-                categoria?:Categoria,
-                existencias?:number
-        ){
+    constructor(idProducto?:number,nombre?:string,minimoExistencias?:number,precio?:number,descripcion?:string, 
+        categoria?:Categoria,existencias?:number){
+        
      this.idProducto=idProducto;
      this.nombre=nombre;
      this.categoria=categoria;

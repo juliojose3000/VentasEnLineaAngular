@@ -1,4 +1,3 @@
-
 <head>
     <title>Free Aditii Website Template | Home :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -53,100 +52,120 @@
     <link href="/src/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/src/css/slider.css" rel="stylesheet" type="text/css" media="all" />
   </head>
-<div class="header_bg">
-    <div class="wrap">
-      <div class="header">
-        <div class="logo">
-          <a href="index.html">
-            <img src="/src/assets/logo.png" alt="" /> </a>
-        </div>
-        <div class="h_icon">
-          <ul class="icon1 sub-icon1">
-            <li>
-              <a class="active-icon c1" href="#">
-                <i>Carrito</i>
-              </a>
-              <ul class="sub-icon1 list">
+  <div class="header_bg">
+        <div class="wrap">
+          <div class="header">
+            <div class="logo">
+              <a href="index.html">
+                <img src="/src/assets/logo.png" alt="" /> </a>
+            </div>
+            <div class="h_icon">
+              <ul class="icon1 sub-icon1">
                 <li>
-                  <h3>shopping cart empty</h3>
-                  <a href=""></a>
-                </li>
-                <li>
-                  <p>if items in your wishlit are missing,
-                    <a href="contact.html">contact us</a> to view them</p>
+                  <a class="active-icon c1" href="#">
+                    <i>Carrito</i>
+                  </a>
+                  <ul class="sub-icon1 list">
+                    <li>
+                      <h3>shopping cart empty</h3>
+                      <a href=""></a>
+                    </li>
+                    <li>
+                      <p>if items in your wishlit are missing,
+                        <a href="contact.html">contact us</a> to view them</p>
+                    </li>
+                  </ul>
                 </li>
               </ul>
-            </li>
-          </ul>
+            </div>
+          
+            <div class="h_search">
+              <form class="form-signin" (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
+                <input type="text" [(ngModel)]="busqueda" name="busqueda" placeholder="Busca algo.." disabled>
+                <input class="form-signin" type="submit" value="">
+              </form>
+            </div>
+            <div class="clear"></div>
+          </div>
         </div>
-      
-        <div class="h_search">
-          <form class="form-signin" (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
-            <input type="text" [(ngModel)]="busqueda" name="busqueda" placeholder="Busca algo.." disabled>
-            <input class="form-signin" type="submit" value="">
-          </form>
-        </div>
-        <div class="clear"></div>
       </div>
-    </div>
-  </div>
-  <div class="header_btm">
-    <div class="wrap">
-      <div class="header_sub">
-        <div class="h_menu">
-          <ul>
-            <a href="index.html">Categor&iacute;as:</a>
-            <li class="active" *ngFor="let item of getAllCategorias()">
-
-              <a> | {{item.descripcion}} | </a>
-
-          </ul>
+      <div class="header_btm">
+        <div class="wrap">
+          <div class="header_sub">
+            <div class="h_menu">
+              <ul>
+                <a href="index.html">Categor&iacute;as:</a>
+                <li class="active" *ngFor="let item of getAllCategorias()">
+    
+                  <a> | {{item.descripcion}} | </a>
+    
+              </ul>
+            </div>
+            
+          
+            <div class="clear"></div>
+          </div>
         </div>
-      
-        <div class="clear"></div>
       </div>
-    </div>
-  </div>
+      <div class="header_btm">
+          <div class="wrap">
+            <div class="header_sub">
+              <div class="h_menu">
+                <ul>
+                  <a>Precios:</a>
+                  <li class="active" *ngFor="let item of getAllProductos()">
+    
+                    <a > | ${{item.precio}} |</a>
+    
+                </ul>
+              </div>
+            
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+
 
 <div>
-  <ul class="product-list-vertical">
+<ul class="product-list-vertical">
 
-      <li class="row" *ngFor="let item of getAll()">
+  <li class="row" *ngFor="let item of getAll()">
 
-          <a href="#" class="product-photo">
-              <img src="/src/assets/iphone6.jpg" height="160" alt="iPhone 6" />{{item.nombre}}  </a>
-                   <div class="product-details">
-             
+      <a href="#" class="product-photo">
+          <img src="/src/assets/iphone6.jpg" height="160" alt="iPhone 6" />{{item.nombre}}  </a>
+               <div class="product-details">
+         
 
-              <h2><a href="#">{{item.nombre}}</a></h2>
-              <h2><a href="#"(mouseover)="selectedProduct=item.idProducto">{{item.idProducto}}</a></h2>
-              <div class="product-rating">
-                  <div>
-                      <span class="product-stars" style="width: 60px" >
-                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                      </span>
-                  </div>
+          <h2><a href="#">{{item.nombre}}</a></h2>
 
-                  <span><a href="#">82 reviews</a></span>
+          <div class="product-rating">
+              <div>
+                  <span class="product-stars" style="width: 60px" >
+                      <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </span>
               </div>
 
-
-              <p class="product-description">{{item.descripcion}}</p>
-              <button (click)="addToCar()"></button>
-              <p class="product-price">${{item.precio}}</p>
+              <span><a href="#">82 reviews</a></span>
           </div>
 
-      </li>
 
-      
-  </ul>
-  <a href="/home" class="btn btn-info btn-lg">
-    <span class="glyphicon glyphicon-log-in"></span>Regresar
-  </a>
+          <p class="product-description">{{item.descripcion}}</p>
+
+          <button>Buy Now!</button>
+          <p class="product-price">${{item.precio}}</p>
+      </div>
+
+  </li>
+
+  
+</ul>
+<a href="/home" class="btn btn-info btn-lg">
+<span class="glyphicon glyphicon-log-in"></span>Regresar
+</a>
 </div>
 
- <!-- start footer -->
- <div class="footer_bg">
+<!-- start footer -->
+<div class="footer_bg">
     <div class="wrap">
       <div class="footer">
         <!-- start grids_of_4 -->
@@ -305,5 +324,6 @@
       </div>
     </div>
   </div>
+
 
 

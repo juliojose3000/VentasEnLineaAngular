@@ -15,6 +15,7 @@ idProducto:number;
 nombre:string;
 categoria:string;
 selectedProduct:number;
+private estado:boolean=false;
 ngOnInit() {
 }
 
@@ -27,7 +28,7 @@ ngOnInit() {
   return this.productos;
   }
   modificarDatos():void{
-    //this.productoService.setIDProductoActual(this.selectedProduct);
+    this.productoService.setIDProductoActual(this.selectedProduct);
     console.log(this.idProducto+" "+this.nombre+" "+this.categoria+" "+this.selectedProduct)
     this.router.navigate(['/modificarProducto']);
   }
@@ -36,10 +37,16 @@ ngOnInit() {
     console.log('entra a borrar '+this.selectedProduct);
     this.productoService.suprimir(this.selectedProduct).subscribe(data => this.productos=data );
     this.router.navigate(['/mantenimientoProducto']);
+    this.estado=true;
  }
  consultarDatos():void{
-  // this.productoService.setIDProductoActual(this.selectedProduct);
+   console.log(this.selectedProduct);
+   this.productoService.setIDProductoActual(this.selectedProduct);
    this.router.navigate(['/consultarProducto']);
  }
+ getEstado():boolean{
+  console.log('Entra '+ this.estado);
+  return this.estado;
+}
 
 }

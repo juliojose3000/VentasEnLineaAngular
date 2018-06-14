@@ -19,23 +19,27 @@ private minimoExistencias:number;
 private descripcion:string;
 private nombre:string;
 private productoAux:Producto;
+private estado:boolean=false;
 
 
 private productoActual:Producto[]=new Array<Producto>();
   constructor(private productoService:ProductoService,private router:Router) {
-    //this.selectedProduct=this.productoService.getIDProductoActual();
-   //this.productoService.getProductoPorIDActual().subscribe(data =>this.productoActual=data);
+    this.selectedProduct=this.productoService.getIDProductoActual();
+  this.productoService.getProductoPorIDActual().subscribe(data =>this.productoActual=data);
   }
 
   ngOnInit() {
    
   }
   onSubmit(){
-    this.categoriaActual=this.productoActual[0].categoria.nombre;
+    this.categoriaActual=this.productoActual[0].categoria.descripcion;
     this.productoAux=new Producto(0,this.nombre,this.minimoExistencias,this.precio,this.descripcion);
    console.log("Selected product "+ this.selectedProduct);
     this.productoService.actualizar(this.selectedProduct,this.productoAux);
-    this.router.navigate(['/mantenimientoProducto']);
+    this.estado=true;
+  }
+  getEstado():boolean{
+    return this.estado;
   }
 
 }
