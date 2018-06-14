@@ -26,7 +26,7 @@ export class MostrarProductoComponent implements OnInit {
    }
 
    onSubmit(){
-    //this.productoService.getProductoNombre(this.busqueda).subscribe(data => this.productos=data );
+    this.productoService.getProductoNombre(this.busqueda).subscribe(data => this.productos=data );
     this.productoService.setNombreCriterioBusqueda(this.busqueda);
     this.getProductosEncontrados();
     this.router.navigateByUrl('/mostrarProductos');

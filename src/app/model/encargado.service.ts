@@ -10,6 +10,10 @@ export class EncargadoService{
 
     constructor(private http: Http){ }//variable de la clase
 
+    getAll():Observable<Encargado[]>{
+        return  this.http.get(this.url+'/').map(response => response.json());
+    }
+
     inicioSesion(correo:string,password:string):Observable<Encargado>{
         console.log("service"+ correo+" "+ password);
         return this.http.get(this.url+'/'+correo+'/'+password).map(response=> response.json());

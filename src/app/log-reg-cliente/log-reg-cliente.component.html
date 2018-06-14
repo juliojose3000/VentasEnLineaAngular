@@ -1,27 +1,6 @@
 
 <div class="container">
-    <script>
 
-        $(function () {
-      
-          $("#login-form-link").click(function (e) {
-            $("#login-form").delay(100).fadeIn(100);
-            $("#register-form").fadeOut(100);
-            $('#register-form-link').removeClass('active');
-           // $('#confirmacion').alert('close');
-            $(this).addClass('active');
-            e.preventDefault();
-          });
-          $("#register-form-link").click(function (e) {
-            $("#register-form").delay(100).fadeIn(100);
-            $("#login-form").fadeOut(100);
-            $('#login-form-link').removeClass('active');
-            $(this).addClass('active');
-            e.preventDefault();
-          });
-      
-        });
-      </script>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="panel panel-login">
@@ -39,7 +18,7 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-lg-12">
-              <form  id="login-form"  (ngSubmit)= "onSubmitLogeo(contactForm);" #contactForm="ngForm" style="display: block;">
+              <div  id="login-form"   style="display: block;">
                 <div class="form-group">
                   <input type="email" [(ngModel)]="correo" name="correo" id="correo"  tabindex="1"  class="form-control" placeholder="Correo" value="">
                 </div>
@@ -49,13 +28,13 @@
                       <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
-                      <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Ingresar">
+                      <input type="submit" (click)="prueba()" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Ingresar">
                       <label>{{mensaje}} </label>
                     </div>
                   </div>
                 </div>
             
-              </form>
+              </div>
               <form id="register-form" (ngSubmit)= "onSubmitRegistro(contactForm);" #contactForm="ngForm"  style="display: none;">
                 <div class="form-group">
                   <input type="number" [(ngModel)]="cedula" name="cedula" id="cedula" tabindex="1" class="form-control" placeholder="Identificaci&oacute;n" value="">

@@ -28,7 +28,7 @@ ngOnInit() {
   return this.productos;
   }
   modificarDatos():void{
-    //this.productoService.setIDProductoActual(this.selectedProduct);
+    this.productoService.setIDProductoActual(this.selectedProduct);
     console.log(this.idProducto+" "+this.nombre+" "+this.categoria+" "+this.selectedProduct)
     this.router.navigate(['/modificarProducto']);
   }

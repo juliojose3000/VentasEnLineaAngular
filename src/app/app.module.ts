@@ -26,9 +26,11 @@ import { CarritocomprasComponent } from './carritocompras/carritocompras.compone
 import { MostrarProductoComponent } from './mostrar-producto/mostrar-producto.component';
 import {ClienteService} from './model/cliente.service';
 import { CarritoService } from './model/carrito.service';
+import {ClienteLogueadoService} from './model/clienteLogueado.service';
 import { MostrarCategoriaProductosComponent } from './mostrar-categoria-productos/mostrar-categoria-productos.component';
 import { ModificarcategoriaComponent } from './modificarcategoria/modificarcategoria.component';
 import { DetallesCompraComponent } from './detalles-compra/detalles-compra.component';
+import { MostrarProductosPorPrecioComponent } from './mostrar-productos-por-precio/mostrar-productos-por-precio.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { DetallesCompraComponent } from './detalles-compra/detalles-compra.compo
     MostrarProductoComponent,
     MostrarCategoriaProductosComponent,
     ModificarcategoriaComponent,
-    DetallesCompraComponent
+    DetallesCompraComponent,
+    MostrarProductosPorPrecioComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,7 @@ import { DetallesCompraComponent } from './detalles-compra/detalles-compra.compo
     HttpModule,
     AppRoutingModule
   ],
-  providers: [EncargadoService,ProductoService,ClienteService,CarritoService,CategoriaService],
+  providers: [EncargadoService,ProductoService,ClienteService,CarritoService,CategoriaService,ClienteLogueadoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./log-admin.component.css']
 })
 export class LogAdminComponent implements OnInit {
-private encargado =new Encargado;
+private encargados:Encargado[]=new Array <Encargado>();
 private correo:string;
 private password:string;
 private mensaje:String;
@@ -20,23 +20,31 @@ private encargadoT:Encargado;
   }
   constructor(private encargadoService:EncargadoService,private router:Router) { 
  // this.encargado= null;
-    // this.encargadoService.inicioSesion('','').subscribe(data =>this.encargado=data);
+     this.encargadoService.getAll().subscribe(data =>this.encargados=data);
  
   }
  
   onSubmit():void{
-  
-    this.encargadoService.inicioSesion(this.correo,this.password).subscribe(data =>this.encargado=data);
-   console.log("Lo que trae "+ this.encargado.nombre );
-  
-    if(this.encargado.nombre!=undefined){
+    var encargado= new Encargado();
+    encargado=this.getEncargado(this.correo,this.password);
+      if(encargado!=undefined){
       this.router.navigate(['/administrativo']);
     }
     else{
       this.mensaje= 'Datos invalidos.intente de nuevo';
      
     }
+  }
+    getEncargado(correo:string,password:string):Encargado{
+      for(let entry of this.encargados){
+        //console.log('entro Ciclo '+ entry.correo+' '+correo+' Ciclo'+entry.password);
+      if(entry.correo==correo && entry.password==password){
+        return entry;
+      }
+      }
+      return undefined;
+    }
   
   }
   
-}
+

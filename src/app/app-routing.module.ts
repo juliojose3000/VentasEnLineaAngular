@@ -16,7 +16,10 @@ import { CarritocomprasComponent } from './carritocompras/carritocompras.compone
 import {ConsultarProductoComponent} from './consultar-producto/consultar-producto.component'
 import {MostrarProductoComponent}  from './mostrar-producto/mostrar-producto.component'
 import {MostrarCategoriaProductosComponent} from './mostrar-categoria-productos/mostrar-categoria-productos.component';
+import {MostrarProductosPorPrecioComponent} from './mostrar-productos-por-precio/mostrar-productos-por-precio.component';
 import {ModificarcategoriaComponent} from './modificarcategoria/modificarcategoria.component';
+import {DetallesCompraComponent} from './detalles-compra/detalles-compra.component';
+
 const router:Routes=[
     {path:'',redirectTo:'home',pathMatch:'full'},
     {path:'home',component:HomeComponent},
@@ -35,7 +38,9 @@ const router:Routes=[
     {path: 'carritocompras',component:CarritocomprasComponent},
     {path: 'mostrarProductos',component:MostrarProductoComponent},
     {path: 'productosCategoria',component:MostrarCategoriaProductosComponent},
-    {path: 'modificarCategoria',component:ModificarcategoriaComponent}
+    {path: 'modificarCategoria',component:ModificarcategoriaComponent},
+    {path:'productosPorPrecio',component:MostrarProductosPorPrecioComponent},
+    {path:'detallesCompra',component:DetallesCompraComponent}
     ];//arreglo Routes
     
     @NgModule({//decoracion

@@ -10,6 +10,7 @@ export class CategoriaService {
     private url = 'http://localhost:8082/api/ventas/categoria';
     private categoriaEscogida: string;
     idCategoriaActual:number;
+    precio:number;
     constructor(private http: Http) {
 
     }
@@ -42,6 +43,9 @@ export class CategoriaService {
     setCategoriaEscogida(categoria: string) {
         this.categoriaEscogida = categoria;
     }
+    setPrecioEscogido(precio:number){
+        this.precio=precio;
+    }
     getAllCategorias(): Observable<Categoria[]> {
         return this.http.get(this.url + '/').map(response => response.json());
     }
@@ -50,8 +54,14 @@ export class CategoriaService {
         console.log(this.url +'/'+ categoria+'/s'+'/s');
         return this.http.get(this.url +'/'+ categoria+'/s'+'/s').map(response => response.json());
     }
+
+    
     getProductosCategoria(): Observable<Producto[]>{
         return this.http.get(this.url + '/'+this.categoriaEscogida+'/'+'s').map(response => response.json());
+    }
+    getProductosPrecio(): Observable<Producto[]>{
+        console.log(this.url + '/'+this.precio+'/'+'s'+'/'+'d'+'/'+'f');
+        return this.http.get(this.url + '/'+'s'+'/'+this.precio+'/'+'d'+'/'+'f').map(response => response.json());
     }
      
    private extractData(res: Response) {

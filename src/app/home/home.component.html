@@ -69,7 +69,7 @@
           <div class="h_icon">
             <ul class="icon1 sub-icon1">
               <li>
-                <a class="active-icon c1" href="#">
+                <a class="active-icon c1" href="/carritocompras">
                   <i>Carrito</i>
                 </a>
                 <ul class="sub-icon1 list">
@@ -85,18 +85,26 @@
               </li>
             </ul>
           </div>
-          <div class="h_icon" >
+          <div *ngIf="validaCliente()==false" class="h_icon" >
             <a href="/logRegistroCliente" class="btn btn-info btn-lg">
-              <span class="glyphicon glyphicon-log-in"></span> Log in
+              <span  class="glyphicon glyphicon-log-in"></span> Log in
             </a>
-
+          
           </div>
+          <div *ngIf="validaCliente()==true" class="h_icon" >
+            <a href="/logRegistroCliente" class="btn btn-info btn-lg">
+              <span  class="glyphicon glyphicon-log-in"></span> Salir
+            </a>
+          </div>
+          
           <div class="h_search">
             <form class="form-signin" (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
               <input type="text" [(ngModel)]="busqueda" name="busqueda" placeholder="Busca algo..">
               <input class="form-signin" type="submit" value="">
-            </form>
+            </form>  
           </div>
+        
+          
           <div class="clear"></div>
         </div>
       </div>
@@ -106,7 +114,7 @@
         <div class="header_sub">
           <div class="h_menu">
             <ul>
-              <a href="index.html">Categor&iacute;as:</a>
+              <a>Categor&iacute;as:</a>
               <li class="active" *ngFor="let item of getAll()">
 
                 <a (click)="getCategoriaEscogida(item.descripcion)"> | {{item.descripcion}} |</a>
@@ -118,10 +126,23 @@
         </div>
       </div>
     </div>
-
-    <br>
-
-
+    <div class="header_btm">
+        <div class="wrap">
+          <div class="header_sub">
+            <div class="h_menu">
+              <ul>
+                <a>Precios:</a>
+                <li class="active" *ngFor="let item of getAllProductos()">
+  
+                  <a (click)="getPrecioEscogido(item.precio)"> | ${{item.precio}} |</a>
+  
+              </ul>
+            </div>
+          
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
     <!-- start main1 -->
     <div class="main_bg1">
       <br>

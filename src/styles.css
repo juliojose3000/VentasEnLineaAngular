@@ -62,6 +62,12 @@ body {
 	-moz-border-radius: 2px;
 	-o-border-radius: 2px;
 }
+.combos{
+	margin: 10% 25% 0;
+}
+.combos2{
+	margin: -2% 40% 0;
+}
 .h_search input[type="text"]{
 	-webkit-appearance: none;
 	padding: 6px 16px;
