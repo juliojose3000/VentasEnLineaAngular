@@ -14,6 +14,8 @@ export class MostrarProductosPorPrecioComponent implements OnInit {
   private productos:Producto[]=new Array<Producto>();
   private productos2:Producto[]=new Array<Producto>();
   private categorias:Categoria[]=new Array<Categoria>();
+  private selectedProduct: number;
+  private estado:boolean=false;
   ngOnInit() {
   }
 
@@ -34,6 +36,14 @@ export class MostrarProductosPorPrecioComponent implements OnInit {
     return this.productos2;
   }
 
-
+  addToCar(): void{
+    if (confirm("Seguro que deseas realizar la compra?")) {
+    this.productoService.agregarAlCarrito(this.selectedProduct);
+     this.estado=true;
+    }
+  }
+  getEstado():Boolean{
+    return this.estado;
+  }
  
 }

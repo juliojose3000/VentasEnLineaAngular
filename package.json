@@ -27,6 +27,7 @@
     "html5-history-api": "^4.2.10",
     "intl": "^1.2.5",
     "json-server": "^0.12.2",
+    "popper.js": "^1.14.3",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^5.1.0",
     "systemjs": "^0.21.3",

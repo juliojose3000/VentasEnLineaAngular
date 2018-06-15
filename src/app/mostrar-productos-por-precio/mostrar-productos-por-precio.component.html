@@ -137,7 +137,7 @@
          
 
           <h2><a href="#">{{item.nombre}}</a></h2>
-
+          <h2><a href="#"(mouseover)="selectedProduct=item.idProducto">C&oacute;digo: {{item.idProducto}}</a></h2>
           <div class="product-rating">
               <div>
                   <span class="product-stars" style="width: 60px" >
@@ -151,14 +151,15 @@
 
           <p class="product-description">{{item.descripcion}}</p>
 
-          <button>Buy Now!</button>
+            <button (click)="addToCar()">Agregar al carrito</button>
           <p class="product-price">${{item.precio}}</p>
       </div>
 
   </li>
-
-  
 </ul>
+<div *ngIf="getEstado()==true" id="confirmacion" class="alert alert-success" >
+  <strong>Agregado al carrito con exito!</strong> 
+</div>
 <a href="/home" class="btn btn-info btn-lg">
 <span class="glyphicon glyphicon-log-in"></span>Regresar
 </a>

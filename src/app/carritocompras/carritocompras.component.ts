@@ -6,6 +6,7 @@ import { Cliente } from '../model/cliente';
 import { HomeComponent } from '../home/home.component';
 import { CarritoService } from '../model/carrito.service';
 import { ClienteLogueadoService } from '../model/clienteLogueado.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carritocompras',
@@ -17,16 +18,16 @@ export class CarritocomprasComponent implements OnInit {
   private productosCarrito:Carrito[]=new Array<Carrito>();
   private total: number = 0;
   private idCliente:number=0;
+  private estado:boolean=false;
   cliente:Cliente=new Cliente();
 
   ngOnInit() {
   }
 
   constructor(private CarritoService: CarritoService,private clienteService:ClienteService, 
-    ) {
-   // this.cliente=this.clienteService.getClienteActual();
-    this.idCliente= this.CarritoService.getIdCliente();
-    console.log('Id Cliente'+this.idCliente);
+    private router:Router) {
+    //  this.clienteLogueado.getClienteLogueado().subscribe(data => this.clienteActual=data);
+    //  console.log('Id Cliente'+this.clienteActual[0].idCliente);
     //this.CarritoService.getCarritoCliente(( this.idCliente)).subscribe(data => this.productosCarrito=data);
     this.CarritoService.getCarritoCliente(( 1)).subscribe(data => this.productosCarrito=data);
     //this.CarritoService.totalCliente( this.idCliente).subscribe(data => this.total=data);
@@ -46,8 +47,12 @@ export class CarritocomprasComponent implements OnInit {
     var txt;
     if (confirm("Seguro que deseas realizar la compra?")) {
       this.CarritoService.realizarCompra2(1);
-      alert("Su compra ha sido realizada con exito");
+      this.estado=true;
+      this.router.navigate(['/detallesCompra']);
     } 
+  }
+  getEstado():boolean{
+    return this.estado;
   }
 
 }

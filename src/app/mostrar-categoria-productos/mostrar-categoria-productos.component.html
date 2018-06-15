@@ -109,36 +109,35 @@
 <div>
   <ul class="product-list-vertical">
 
-      <li class="row" *ngFor="let item of getAll()">
+    <li class="row" *ngFor="let item of getAll()">
 
-          <a href="#" class="product-photo">
-              <img src="/src/assets/iphone6.jpg" height="160" alt="iPhone 6" />{{item.nombre}}  </a>
-                   <div class="product-details">
-             
+      <a href="#" class="product-photo">
+          <img src="/src/assets/iphone6.jpg" height="160" alt="iPhone 6" />{{item.nombre}}  </a>
+               <div class="product-details">
+         
 
-              <h2><a href="#">{{item.nombre}}</a></h2>
-
-              <div class="product-rating">
-                  <div>
-                      <span class="product-stars" style="width: 60px" >
-                          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                      </span>
-                  </div>
-
-                  <span><a href="#">82 reviews</a></span>
+          <h2><a href="#">{{item.nombre}}</a></h2>
+          <h2><a href="#"(mouseover)="selectedProduct=item.idProducto">C&oacute;digo: {{item.idProducto}}</a></h2>
+          <div class="product-rating">
+              <div>
+                  <span class="product-stars" style="width: 60px" >
+                      <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </span>
               </div>
 
-
-              <p class="product-description">{{item.descripcion}}</p>
-
-              <button>Buy Now!</button>
-              <p class="product-price">${{item.precio}}</p>
+              <span><a href="#">82 reviews</a></span>
           </div>
 
-      </li>
 
-      
+          <p class="product-description">{{item.descripcion}}</p>
+          <button (click)="addToCar()">Agregar al carrito</button>
+          <p class="product-price">${{item.precio}}</p>
+      </div>
+  </li>
   </ul>
+  <div *ngIf="getEstado()==true" id="confirmacion" class="alert alert-success" >
+    <strong>Agregado al carrito con exito!</strong> 
+  </div>
   <a href="/home" class="btn btn-info btn-lg">
     <span class="glyphicon glyphicon-log-in"></span>Regresar
   </a>

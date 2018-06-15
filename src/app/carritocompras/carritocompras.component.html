@@ -242,11 +242,14 @@
           <span class="itemName">Total:</span>
           <span class="price">{{item}}</span>
           <span class="order" (click)="realizarCompra()">
-            <a class="text-center">ORDER</a>
+            <a class="text-center">Ordenar</a>
           </span>
         </li>
 
       </ul>
+      <div *ngIf="getEstado()==true" id="confirmacion" class="alert alert-success" >
+        <strong>Agregado al carrito con exito!</strong> 
+      </div>
     </div>
   </div>
 

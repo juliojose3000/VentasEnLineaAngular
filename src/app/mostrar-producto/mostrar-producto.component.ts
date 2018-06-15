@@ -16,6 +16,7 @@ export class MostrarProductoComponent implements OnInit {
   private idProducto: number;
   private descripcion: string;
   private selectedProduct: number;
+  private estado:boolean=false;
   nombreBusqueda:string;
   busqueda:string;
   ngOnInit() {
@@ -46,9 +47,14 @@ export class MostrarProductoComponent implements OnInit {
     console.log(this.nombreBusqueda);
     //this.productoService.getProductoNombre(this.nombreBusqueda).subscribe(data => this.productos=data);
   }
-
   addToCar(): void{
+    if (confirm("Seguro que deseas realizar la compra?")) {
     this.productoService.agregarAlCarrito(this.selectedProduct);
+     this.estado=true;
+    }
+  }
+  getEstado():Boolean{
+    return this.estado;
   }
 
 
