@@ -98,7 +98,6 @@
 
         <!--Carrito-->
 
-
         <div class="h_search">
           <form>
             <input type="text" value="" placeholder="Busca algo..">
@@ -199,7 +198,7 @@
 
   <br>
 
-  <div class="container-fluid breadcrumbBox text-center">
+  <!--<div class="container-fluid breadcrumbBox text-center">
     <ol class="breadcrumb">
       <li>
         <a href="#">Review</a>
@@ -211,11 +210,11 @@
         <a href="#">Payment</a>
       </li>
     </ol>
-  </div>
+  </div>-->
 
   <div class="container text-center">
 
-    <div class="col-md-5 col-sm-12">
+    <div class="col-md-7 col-sm-12">
       <div class="bigcart"></div>
       <h1>Your shopping cart</h1>
       <p>
@@ -223,34 +222,43 @@
       </p>
     </div>
 
-    <div class="col-md-7 col-sm-12 text-left">
+
+
+    <div class="col-md-10 col-sm-12 text-left">
       <ul>
         <li class="row list-inline columnCaptions">
           <span>QTY</span>
           <span>ITEM</span>
           <span>Price</span>
-          <span>Total</span>
+          <span>Total I.V.I</span>
+          <span>Remover</span>
         </li>
-        <li class="row" *ngFor="let item of getProductos()">
+        <li class="row" *ngFor="let item of productosCarrito" >
           <span class="quantity">{{item.cantidad}}</span>
-          <span class="productName">{{item.nombre}}</span>
-          <span class="price">{{item.precio+" CRC"}}</span>
-          <span class="total">{{item.precio * item.cantidad}}</span>
+          <span class="itemName">{{item.nombre}}</span>
+          <span class="glyphicon" (click)="deleteProducto(item.idProducto)">
+            <a class="glyphicon-remove"></a>
+          </span>
+          <span class="valorunitario">{{item.precio+(item.precio*0.13)+" CRC"}}</span>
+          <span class="price">{{(item.precio+(item.precio*0.13)) * item.cantidad+" CRC"}}</span>
         </li>
 
         <li class="row totals" *ngFor="let item of getTotal()">
-          <span class="itemName">Total:</span>
-          <span class="price">{{item}}</span>
+          <span class="itemName">Total I.V.I:</span>
+          <span class="price">{{item+" CRC"}}</span>
           <span class="order" (click)="realizarCompra()">
             <a class="text-center">Ordenar</a>
           </span>
+          <!--<br>
+          <span class="itemName">Impuestos(13%): {{item/100*13+" CRC"}}</span>
+          <br>
+          <span class="itemName">Total + Impuestos: {{item+(item/100*13)+" CRC"}}</span>-->
         </li>
 
       </ul>
-      <div *ngIf="getEstado()==true" id="confirmacion" class="alert alert-success" >
-        <strong>Agregado al carrito con exito!</strong> 
-      </div>
+
     </div>
+
   </div>
 
 
@@ -270,4 +278,3 @@
 
 
 </body>
-

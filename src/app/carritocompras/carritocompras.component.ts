@@ -7,6 +7,8 @@ import { HomeComponent } from '../home/home.component';
 import { CarritoService } from '../model/carrito.service';
 import { ClienteLogueadoService } from '../model/clienteLogueado.service';
 import { Router } from '@angular/router';
+import { ClienteLogueado } from '../model/clienteLogueado';
+import { ReporteVentaService } from '../model/reporte-venta.service';
 
 @Component({
   selector: 'app-carritocompras',
@@ -15,44 +17,72 @@ import { Router } from '@angular/router';
 })
 export class CarritocomprasComponent implements OnInit {
 
-  private productosCarrito:Carrito[]=new Array<Carrito>();
-  private total: number = 0;
-  private idCliente:number=0;
-  private estado:boolean=false;
-  cliente:Cliente=new Cliente();
+  private productosCarrito: Carrito[] = new Array<Carrito>();
+  private total: number=0;
 
+  private estado: boolean = false;
+  cliente: Cliente = new Cliente();
+  private idCliente: number=0;
+  private clienteActual: ClienteLogueado[] = new Array<ClienteLogueado>();
   ngOnInit() {
+  
+ 
   }
 
-  constructor(private CarritoService: CarritoService,private clienteService:ClienteService, 
-    private router:Router) {
-    //  this.clienteLogueado.getClienteLogueado().subscribe(data => this.clienteActual=data);
-    //  console.log('Id Cliente'+this.clienteActual[0].idCliente);
-    //this.CarritoService.getCarritoCliente(( this.idCliente)).subscribe(data => this.productosCarrito=data);
-    this.CarritoService.getCarritoCliente(( 1)).subscribe(data => this.productosCarrito=data);
-    //this.CarritoService.totalCliente( this.idCliente).subscribe(data => this.total=data);
-    this.CarritoService.totalCliente(1).subscribe(data => this.total=data);
-
+  constructor(private CarritoService: CarritoService, private clienteService: ClienteService,
+    private router: Router, private clienteLogueado: ClienteLogueadoService,
+    private reporteService:ReporteVentaService) {
+          this.clienteLogueado.getClienteLogueado().subscribe(data => {this.clienteActual = data,
+      this.idCliente=this.clienteActual[0].idCliente,
+      this.CarritoService.getCarritoCliente(this.idCliente).subscribe(data => this.productosCarrito = data),
+      this.CarritoService.totalCliente(this.idCliente).subscribe(data => this.total = data)});
+   
+    
   }
 
-  getProductos():Carrito[]{
+  getProductos(): Carrito[] {
+    console.log('Valor '+this.idCliente);
     return this.productosCarrito;
+    
   }
 
-  getTotal(): number{
+
+  getTotal(): number {
+   
     return this.total
   }
 
-  realizarCompra():void{
+  realizarCompra(): void {
     var txt;
     if (confirm("Seguro que deseas realizar la compra?")) {
-      this.CarritoService.realizarCompra2(1);
-      this.estado=true;
+      this.CarritoService.realizarCompra2(this.idCliente);
+      this.estado = true;
+      this.reporteService.generarReporte(this.idCliente);
+      alert('Compra realizada con exito');
       this.router.navigate(['/detallesCompra']);
-    } 
+    }
   }
-  getEstado():boolean{
+  getEstado(): boolean {
     return this.estado;
   }
+  deleteProducto(idProducto: number): void {
+    var txt;
+    if (confirm("Seguro que deseas borrar el producto?")) {
+      console.log(this.idCliente,idProducto);
+      this.CarritoService.deleteProducto(this.idCliente, idProducto);
+      this.refreshCustomersList();
+      //location.reload(false);
+    }
+  }
+  refreshCustomersList(){
+    this.clienteLogueado.getClienteLogueado().subscribe(data => {
+    this.clienteActual = data,
+    this.idCliente = this.clienteActual[0].idCliente,
+    this.CarritoService.getCarritoCliente(this.idCliente).subscribe(data => this.productosCarrito = data),
+    this.CarritoService.totalCliente(this.idCliente).subscribe(data => this.total = data)
+    });
+    }
+  }
+  
 
-}
+

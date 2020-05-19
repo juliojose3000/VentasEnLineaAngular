@@ -13,7 +13,7 @@ export class ClienteLogueadoService {
 
     constructor(private http: Http){ }
 
-    getClienteLogueado():Observable<Cliente[]>{
+    getClienteLogueado():Observable<ClienteLogueado[]>{
         return  this.http.get(this.url+'/').map(response => response.json());
     }
 
@@ -23,10 +23,11 @@ export class ClienteLogueadoService {
         return this.http.post(this.url + '/', cliente, options).toPromise().then(this.extractData);
         
     }
-    suprimir(idCliente:number):Observable<ClienteLogueado[]>{
+    suprimir():Promise<ClienteLogueado[]>{
         var headers = new Headers();
         headers.append('Content-Type', 'application/json; charset=utf-8');
-        return this.http.delete(this.url+'/'+idCliente, { headers: headers }) .map(response => response.json())
+       // alert(this.url+'/');
+        return this.http.delete(this.url+'/', { headers: headers }) .toPromise().then(this.extractData);
     }
     private extractData(res: Response) {
         let body = res.json();

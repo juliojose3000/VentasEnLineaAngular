@@ -85,16 +85,16 @@
               </li>
             </ul>
           </div>
-          <div *ngIf="validaCliente()==false" class="h_icon" >
+          <div *ngIf="validaCliente()==false"  class="h_icon" >
             <a href="/logRegistroCliente" class="btn btn-info btn-lg">
               <span  class="glyphicon glyphicon-log-in"></span> Log in
             </a>
           
           </div>
-          <div *ngIf="validaCliente()==true" class="h_icon" >
-            <a href="/logRegistroCliente" class="btn btn-info btn-lg">
-              <span  class="glyphicon glyphicon-log-in"></span> Salir
-            </a>
+          <div *ngIf="validaCliente()==true"  class="h_icon" >
+            <button class="btn btn-info btn-lg" (click)="cerrarSesion()">
+             Salir
+            </button>
           </div>
           
           <div class="h_search">

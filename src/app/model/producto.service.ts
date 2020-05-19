@@ -4,12 +4,14 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { Producto } from './producto.model';
 import { Categoria } from './categoria.model';
+import { Carrito } from './carrito.model';
 @Injectable()
 export class ProductoService{
     private url='http://localhost:8082/api/ventas/producto';
     private idActual:number=0;
     private nombreProductoBusqueda:string="";
     private productoBusqueda:Producto[]=new Array<Producto>();
+    private carrito:Carrito;
    
     constructor(private http: Http){
      // this.getAll().subscribe(data => this.productoBusqueda=data );
@@ -75,7 +77,6 @@ export class ProductoService{
         return this.http.get(this.url+'/c'+'/ce'+'/ct').map(response =>response.json());
       }
 
-     
       agregar(producto:Producto): Promise<Producto> {
       
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -83,13 +84,17 @@ export class ProductoService{
         return this.http.post(this.url + '/', producto, options).toPromise().then(this.extractData);
     
       }
-
-      agregarAlCarrito(idProducto: number): Promise<number>{
+      agregarAlCarrito(idProducto:number,quantity:number): Promise<Producto> {
+      
+        this.carrito = new Carrito(0, idProducto, "",quantity,0,0);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.url + '/agregarEnCarrito', idProducto, options).toPromise().then(this.extractData);
+        return this.http.post(this.url + '/agregarEnCarrito', this.carrito, options).toPromise().then(this.extractData);
 
+    
       }
+
+    
 
       private extractData(res: Response) {
         let body = res.json();

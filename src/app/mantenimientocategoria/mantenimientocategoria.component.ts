@@ -20,21 +20,25 @@ export class MantenimientocategoriaComponent implements OnInit {
     this.categoriaService.getAllCategorias().subscribe(data => this.categorias=data );
   }
 
+
   getAll():Categoria[]{
    
     return this.categorias;
     }
 
-    modificarDatos():void{
-      this.categoriaService.setIDCategoriaActual(this.selectedProduct);
+    modificarDatos(idCategoria:number):void{
+      this.categoriaService.setIDCategoriaActual(idCategoria);
       this.router.navigate(['/modificarCategoria']);
     }
   
-    suprimirDatos():void{
-      console.log('entra a borrar '+this.selectedProduct);
-      this.categoriaService.suprimir(this.selectedProduct).subscribe(data => this.categorias=data );
-      this.router.navigate(['/mantenimientoCategoria']);
+    suprimirDatos(idCategoria:number):void{
+      console.log('entra a borrar '+idCategoria);
+      this.categoriaService.suprimir(idCategoria).subscribe(data => this.categorias=data );
+      this.categoriaService.getAllCategorias().subscribe(data => this.categorias=data );
    }
+   refrescarLista(){
+    this.categoriaService.getAllCategorias().subscribe(data => this.categorias=data );
+  }
 
   
 

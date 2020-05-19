@@ -31,6 +31,9 @@ import { MostrarCategoriaProductosComponent } from './mostrar-categoria-producto
 import { ModificarcategoriaComponent } from './modificarcategoria/modificarcategoria.component';
 import { DetallesCompraComponent } from './detalles-compra/detalles-compra.component';
 import { MostrarProductosPorPrecioComponent } from './mostrar-productos-por-precio/mostrar-productos-por-precio.component';
+import { ReporteVentaService } from './model/reporte-venta.service';
+import { ReporteTopVendidosComponent } from './reporte-top-vendidos/reporte-top-vendidos.component';
+import { ReporteTotalVentasComponent } from './reporte-total-ventas/reporte-total-ventas.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { MostrarProductosPorPrecioComponent } from './mostrar-productos-por-prec
     MostrarCategoriaProductosComponent,
     ModificarcategoriaComponent,
     DetallesCompraComponent,
-    MostrarProductosPorPrecioComponent
+    MostrarProductosPorPrecioComponent,
+    ReporteTopVendidosComponent,
+    ReporteTotalVentasComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,8 @@ import { MostrarProductosPorPrecioComponent } from './mostrar-productos-por-prec
     HttpModule,
     AppRoutingModule
   ],
-  providers: [EncargadoService,ProductoService,ClienteService,CarritoService,CategoriaService,ClienteLogueadoService],
+  providers: [EncargadoService,ProductoService,ClienteService,CarritoService,CategoriaService,
+    ClienteLogueadoService,ReporteVentaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

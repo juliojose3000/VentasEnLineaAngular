@@ -5,6 +5,8 @@ import { Cliente } from '../model/cliente';
 import { DireccionCliente } from '../model/direccioncliente';
 import { ContactoCliente } from '../model/contactocliente';
 import { subscribeOn } from 'rxjs/operator/subscribeOn';
+import { ClienteLogueadoService } from '../model/clienteLogueado.service';
+import { ClienteLogueado } from '../model/clienteLogueado';
 
 
 @Component({
@@ -22,6 +24,7 @@ export class LogRegClienteComponent implements OnInit {
   correoR: string;
   passwordR: string;
   private clientes: Cliente[]=new Array <Cliente>();
+  private clienteActual:ClienteLogueado[]=new Array<ClienteLogueado>();
   telefono1: string;
   telefono2: string;
   direccion1: string;
@@ -33,8 +36,10 @@ export class LogRegClienteComponent implements OnInit {
    id:number=0;
   estado: boolean = false;
   ngOnInit() {
+    //this.clienteLogueadoService.getClienteLogueado().subscribe(data  => this.clienteActual=data);
   }
-  constructor(private clienteService: ClienteService, private router: Router) {
+  constructor(private clienteService: ClienteService, private router: Router,
+    private clienteLogueadoService:ClienteLogueadoService,private clienteLogueado:ClienteLogueadoService) {
     this.clienteService.getAll().subscribe(data => this.clientes = data);
   }
   /*
@@ -53,11 +58,12 @@ export class LogRegClienteComponent implements OnInit {
   }
   */
   prueba():void{
+     //this.clienteLogueadoService.suprimir(this.clienteActual[0].idCliente);
     var cliente= new Cliente();
     console.log(this.getCliente(this.correo,this.password).idCliente);
     cliente=this.getCliente(this.correo,this.password);
     if(cliente!=undefined){
-      this.clienteService.inicializarClienteActual(cliente);
+      this.clienteLogueadoService.registrarClienteLogueado(cliente);
       this.router.navigate(['/home']);
     }
     else{

@@ -13,13 +13,13 @@
           
         </tr>
        
-        <tr *ngFor="let item of getAll()"  ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)" >
-          <td style="vertical-align:middle" (mouseover)="selectedProduct=item.idProducto" >{{item.idProducto}}</td>
+        <tr *ngFor="let item of productos"   >
+          <td style="vertical-align:middle" >{{item.idProducto}}</td>
           <td style="vertical-align:middle" >{{item.nombre}}</td>
           <td style="vertical-align:middle" >{{item.categoria.descripcion}}</td>
-          <td><a (click)="consultarDatos()" >Consultar</a>
-          <td><a (click)="modificarDatos()">Modificar</a>
-          <td><a (click)="suprimirDatos()">Suprimir</a>
+          <td><a (click)="consultarDatos(item.idProducto)" >Consultar</a>
+          <td><a (click)="modificarDatos(item.idProducto)">Modificar</a>
+          <td><a (click)="suprimirDatos(item.idProducto)">Suprimir</a>
              
          
       </tr>

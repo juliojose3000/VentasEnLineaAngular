@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { Categoria } from './categoria.model';
 import { Carrito } from './carrito.model';
+import { ClienteLogueado } from './clienteLogueado';
+import { ReporteVenta } from './reporte-venta';
 @Injectable()
 export class CarritoService {
   private url = 'http://localhost:8082/api/ventas/carrito';
@@ -46,11 +48,17 @@ export class CarritoService {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.delete(this.url + '/' + idCliente, { headers: headers }).toPromise().then(this.extractData);
+    
+    
+    }
+    deleteProducto(idCliente: number, idProducto: number): Promise<Carrito> {
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json; charset=utf-8');
+      return this.http.delete(this.url + '/' + idCliente + '/' +idProducto, { headers: headers }).toPromise().then(this.extractData);
+    }
+  
 
-
-  }
-
-
+   
   private extractData(res: Response) {
     let body = res.json();
     return body || {};

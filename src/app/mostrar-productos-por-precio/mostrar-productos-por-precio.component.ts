@@ -36,9 +36,9 @@ export class MostrarProductosPorPrecioComponent implements OnInit {
     return this.productos2;
   }
 
-  addToCar(): void{
-    if (confirm("Seguro que deseas realizar la compra?")) {
-    this.productoService.agregarAlCarrito(this.selectedProduct);
+  addToCar(idProducto:number): void{
+    if (confirm("Seguro que deseas agregar al carrito?")) {
+    this.productoService.agregarAlCarrito(idProducto,1);
      this.estado=true;
     }
   }

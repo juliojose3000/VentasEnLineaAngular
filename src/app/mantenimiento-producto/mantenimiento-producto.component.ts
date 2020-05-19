@@ -27,21 +27,21 @@ ngOnInit() {
    
   return this.productos;
   }
-  modificarDatos():void{
-    this.productoService.setIDProductoActual(this.selectedProduct);
-    console.log(this.idProducto+" "+this.nombre+" "+this.categoria+" "+this.selectedProduct)
+  modificarDatos(idProducto:number):void{
+    this.productoService.setIDProductoActual(idProducto);
+   // console.log(this.idProducto+" "+this.nombre+" "+this.categoria+" "+this.selectedProduct)
     this.router.navigate(['/modificarProducto']);
   }
 
-  suprimirDatos():void{
-    console.log('entra a borrar '+this.selectedProduct);
-    this.productoService.suprimir(this.selectedProduct).subscribe(data => this.productos=data );
-    this.router.navigate(['/mantenimientoProducto']);
-    this.estado=true;
+  suprimirDatos(idProducto:number):void{
+  
+    this.productoService.suprimir(idProducto).subscribe(data => this.productos=data );
+    this.productoService.getAll().subscribe(data => this.productos=data );
+  
  }
- consultarDatos():void{
-   console.log(this.selectedProduct);
-   this.productoService.setIDProductoActual(this.selectedProduct);
+ consultarDatos(idProducto:number):void{
+   console.log(idProducto);
+   this.productoService.setIDProductoActual(idProducto);
    this.router.navigate(['/consultarProducto']);
  }
  getEstado():boolean{

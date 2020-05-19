@@ -1,0 +1,22 @@
+<div id="content" class="container-fluid">
+  <h1>Amazing!</h1>
+  <h2>Reporte de ventas del &uacute;ltimo mes</h2>
+  
+  <li *ngFor="let item of ventasTop let i=index">
+    <div class="row">
+      <div class="col-sm-1">
+        <p> {{i+1 }}- Id Cliente: {{item.idCliente}}</p>
+        <p>  Nombre cliente: {{item.nombre}}</p>
+        <p> Apellidos cliente : {{item.apellidos}}</p>
+        <p>  Total Comprado: {{item.total}}</p>
+      </div>
+         <br>
+         <br>
+    </div>
+  </li>
+  
+  </div>
+  <div id="editor"></div>
+  <button id="cmd">Generar Reporte</button>
+  <a href="/administrativo" class="btn btn-primary btn-sm">
+    << Regresar</a>

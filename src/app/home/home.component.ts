@@ -7,6 +7,8 @@ import { CategoriaService } from '../model/categoria.service';
 import { ClienteService } from '../model/cliente.service';
 import { Cliente } from '../model/cliente';
 import { CarritoService } from '../model/carrito.service';
+import { ClienteLogueado } from '../model/clienteLogueado';
+import { ClienteLogueadoService } from '../model/clienteLogueado.service';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +21,14 @@ private productos:Producto[]=new Array<Producto>();
 private categorias:Categoria[]=new Array<Categoria>();
 private selectedCategoy:string;
 private productos2:Producto[]=new Array<Producto>();
+private clienteActual: ClienteLogueado[] = new Array<ClienteLogueado>();
 private logeado:boolean=false;
 idCliente:number;
 ngOnInit() {
 }
   constructor(private clienteService:ClienteService,private productoService:ProductoService,private categoriaService:CategoriaService,
-     private router:Router,private carritoService:CarritoService) { 
+     private router:Router,private carritoService:CarritoService, private clienteLogueado: ClienteLogueadoService) { 
+      this.clienteLogueado.getClienteLogueado().subscribe(data => this.clienteActual = data);
    this.productoService.getTopProductos().subscribe(data => this.productos=data);
    this.productoService.getAll().subscribe(data => this.productos2=data);
     this.categoriaService.getAllCategorias().subscribe(data => this.categorias=data);
@@ -43,19 +47,24 @@ ngOnInit() {
   }
   
   validaCliente():boolean{
-    if (this.getClienteActual().idCliente!=undefined){
-      this.logeado=true;
-      this.idCliente=this.getClienteActual().idCliente;
-      console.log('Valida cliente'+this.idCliente);
-      this.setIdCliente();
-      return this.logeado;
+    //console.log(this.clienteActual[0].idCliente);
+    if (this.clienteActual[0].idCliente>0){
+     console.log('entro '+ this.logeado);
+     this.logeado=true;
     }
     return this.logeado;
   }
-  setIdCliente():void{
-   // console.log('Set Id Cliente'+this.idCliente);
-    this.carritoService.setIdCliente(this.idCliente);
+  getEstado():boolean{
+    return this.logeado;
   }
+
+  cerrarSesion():void{
+    //alert('Entro a borrar');
+    this.clienteLogueado.suprimir();
+    this.logeado=false;
+    this.router.navigate(['/home']);
+  }
+
   
   onSubmit(){
     this.productoService.getProductoNombre(this.busqueda).subscribe(data => this.productos=data );

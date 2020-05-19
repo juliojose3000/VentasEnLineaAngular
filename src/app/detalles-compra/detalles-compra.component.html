@@ -1,15 +1,27 @@
-<div class="container-fluid">
+<div id="content" class="container-fluid">
   <h1>Amazing!</h1>
-  <h2>Detalles de la commpra</h2>
-  
-  <div  class="row">
-    <div class="col-sm-1"><p>Nombre: </p>
-    <p>Direccion:</p>
+  <h2>Detalles de la compra</h2>
+
+  <li *ngFor="let item of getAll()">
+    <div class="row">
+      <div class="col-sm-1">
+        <p>Fecha: {{item.fecha}}</p>
+        <p>N&uacute;mero de orden : {{item.numeroOrden}}</p>
+        <p>Nombre: {{item.nombreCliente}} </p>
+        <p>Direccion de env&iacute;o: {{item.direccion}} </p>
+        <p>C&oacute;digo de producto: {{item.idProducto}} </p>
+        <p>NombreProducto de producto: {{item.nombreProducto}} </p>
+        <p>Cantidad productos: {{item.cantidadProductos}}</p>
+        <p>Subtotal: {{item.subTotal}}</p>
+        <p>Impuesto: {{item.impuesto}}</p>
+        <p>Total orden: {{item.totalOrden}}</p>
+      </div>
+
     </div>
-    <div class="col-sm-2">
-    <p>Allan Solano</p>
-    <p>Tejar</p>
-    </div>
-  
-  </div>
+  </li>
+
 </div>
+<div id="editor"></div>
+<button id="cmd">Generar Reporte</button>
+<a href="/home" class="btn btn-primary btn-sm">
+  << Regresar</a>

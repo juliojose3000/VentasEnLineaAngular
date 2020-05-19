@@ -1,0 +1,20 @@
+<div id="content" class="container-fluid">
+<h1>Amazing!</h1>
+<h2>Productos m&aacute;s vendidos por categor&iacute;a</h2>
+
+<li *ngFor="let item of categoriasTop let i=index">
+  <div class="row">
+    <div class="col-sm-1">
+      <p> {{i+1 }}- Categoria: {{item.descripcion}}</p>
+      <p>  Cantidad de ventas: {{item.cantidadVendidas}}</p>
+    </div>
+       <br>
+       <br>
+  </div>
+</li>
+
+</div>
+<div id="editor"></div>
+<button id="cmd">Generar Reporte</button>
+<a href="/administrativo" class="btn btn-primary btn-sm">
+  << Regresar</a>
